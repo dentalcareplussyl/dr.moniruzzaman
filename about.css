@@ -1,0 +1,826 @@
+/* ==========================================================================
+   Dr. Moniruzzaman Website Design System Extension (about.css)
+   ========================================================================== */
+
+/* ==========================================================================
+   Image Asset Allocations (Synchronized Absolute Folder Paths)
+   ========================================================================== */
+.about-portrait-cutout-img {
+    background-image: url("images/doctor-no-bg.png");
+}
+
+.journey-img { 
+    background-image: url("images/doctor-working.jpg"); 
+}
+
+.science-img { 
+    background-image: url("images/dental-procedure.jpg"); 
+}
+
+.safety-img { 
+    background-image: url("images/patient.jpg"); 
+}
+
+.cert-img-1 { 
+    background-image: url("images/certificate.jpg"); 
+}
+
+.cert-img-2 { 
+    background-image: url("images/certificate.jpg"); 
+}
+
+.cert-img-3 { 
+    background-image: url("images/certificate.jpg"); 
+}
+
+.cert-img-4 { 
+    background-image: url("images/certificate.jpg"); 
+}
+
+.cert-img-5 { 
+    background-image: url("images/certificate.jpg"); 
+}
+
+.service-img-1 { 
+    background-image: url("images/service.jpg"); 
+}
+
+.service-img-2 { 
+    background-image: url("images/service.jpg"); 
+}
+
+.service-img-3 { 
+    background-image: url("images/service.jpg"); 
+}
+
+.service-img-4 { 
+    background-image: url("images/service.jpg"); 
+}
+
+.service-img-5 { 
+    background-image: url("images/service.jpg"); 
+}
+
+.service-img-6 { 
+    background-image: url("images/service.jpg"); 
+}
+
+.service-img-7 { 
+    background-image: url("images/service.jpg"); 
+}
+
+.service-img-8 { 
+    background-image: url("images/service.jpg"); 
+}
+
+.service-img-9 { 
+    background-image: url("images/service.jpg"); 
+}
+
+.service-img-10 { 
+    background-image: url("images/service.jpg"); 
+}
+
+/* Dynamic Employee Roster Image Maps */
+.emp-img-1 {
+    background-image: url("images/doctor.jpg");
+}
+.emp-img-2 {
+    background-image: url("images/avatar1.jpg");
+}
+.emp-img-3 {
+    background-image: url("images/avatar2.jpg");
+}
+.emp-img-4 {
+    background-image: url("images/avatar3.jpg");
+}
+.emp-img-5 {
+    background-image: url("images/office.jpg");
+}
+
+/* --------------------------------------------------------------------------
+   Section 1 — About Hero (Cut-out profile with modern flat disc backdrop)
+   -------------------------------------------------------------------------- */
+.about-hero {
+    position: relative;
+    overflow: hidden;
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: flex;
+    align-items: center;
+    padding: 160px 0 80px 0;
+    z-index: 1;
+    background-color: var(--bg-light-ice);
+}
+
+/* About Page Transparent Header Link Rules */
+#about-page-body .site-header:not(.scrolled) .nav-link {
+    color: var(--primary-teal);
+}
+#about-page-body .site-header:not(.scrolled) .phone-btn {
+    color: var(--primary-teal);
+    border-color: var(--primary-teal-light);
+}
+#about-page-body .site-header:not(.scrolled) .mobile-menu-toggle .line {
+    background-color: var(--primary-teal);
+}
+
+.about-hero-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 60px;
+    align-items: center;
+    width: 100%;
+}
+
+.about-hero-tag {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.4em;
+    color: var(--primary-teal-light);
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.about-hero-title {
+    font-family: var(--font-serif);
+    font-size: clamp(34px, 5vw, 64px);
+    line-height: 1.15;
+    margin-bottom: 24px;
+    font-weight: 800;
+    color: var(--primary-teal-dark);
+}
+
+.about-hero-decorative-line {
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent-teal), var(--accent-cyan));
+    border-radius: 2px;
+}
+
+.about-hero-portrait-composite {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 1/1;
+    max-width: 440px;
+    justify-self: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.about-portrait-backdrop-disk {
+    position: absolute;
+    width: 84%;
+    height: 84%;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(20, 184, 166, 0.18) 0%, rgba(6, 182, 212, 0.06) 100%);
+    box-shadow: 0 30px 60px rgba(12, 87, 90, 0.08);
+    z-index: 1;
+}
+
+.about-portrait-cutout-img {
+    position: absolute;
+    bottom: 0;
+    width: 90%;
+    height: 100%;
+    background-size: contain;
+    background-position: bottom center;
+    background-repeat: no-repeat;
+    z-index: 2;
+}
+
+.geometric-dot {
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background-color: var(--accent-teal);
+    z-index: 3;
+    box-shadow: 0 0 15px rgba(20, 184, 166, 0.3);
+    animation: gem-pulse 4s infinite ease-in-out;
+}
+
+.dot-1 {
+    top: 35%;
+    left: -2%;
+}
+
+.dot-2 {
+    bottom: 30%;
+    right: -4%;
+    background-color: var(--accent-cyan);
+    width: 12px;
+    height: 12px;
+}
+
+.dot-3 {
+    top: 20%;
+    right: 12%;
+    width: 8px;
+    height: 8px;
+    background-color: var(--primary-teal-light);
+}
+
+.geometric-triangle {
+    position: absolute;
+    bottom: 12%;
+    left: 8%;
+    width: 0;
+    height: 0;
+    border-left: 20px solid transparent;
+    border-right: 20px solid transparent;
+    border-bottom: 35px solid var(--primary-teal);
+    transform: rotate(-18deg);
+    z-index: 3;
+    opacity: 0.8;
+}
+
+/* --------------------------------------------------------------------------
+   Section 2 — About Content
+   -------------------------------------------------------------------------- */
+.about-editorial-section {
+    position: relative;
+    overflow: hidden;
+}
+
+.editorial-row {
+    position: relative;
+    padding: 100px 0;
+    overflow: hidden;
+}
+
+.light-bg-panel {
+    background-color: transparent;
+}
+
+.dark-bg-panel {
+    background-color: var(--bg-dark-slate);
+    border-top: 1px solid rgba(255, 255, 255, 0.02);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.02);
+}
+
+.editorial-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 70px;
+    align-items: center;
+}
+
+.invert-columns {
+    direction: ltr;
+}
+
+.editorial-grid.invert-columns > :first-child {
+    order: 2;
+}
+.editorial-grid.invert-columns > :last-child {
+    order: 1;
+}
+
+.editorial-text-panel {
+    display: flex;
+    flex-direction: column;
+}
+
+.editorial-paragraph {
+    font-size: 15px;
+    line-height: 1.8;
+    color: var(--text-light);
+    margin-bottom: 20px;
+}
+
+.editorial-paragraph:last-of-type {
+    margin-bottom: 0;
+}
+
+.muted-white-text {
+    color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.white-text-glowing {
+    color: var(--text-white) !important;
+}
+
+.accent-cyan-text {
+    color: var(--accent-cyan) !important;
+}
+
+.text-teal-highlight {
+    color: var(--primary-teal-dark);
+}
+
+.editorial-visual-panel {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.editorial-image-holder-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 480px;
+}
+
+.editorial-image-holder {
+    width: 100%;
+    aspect-ratio: 4/3;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: var(--glass-shadow-heavy);
+    background-size: cover;
+    background-position: center;
+    border: 1px solid rgba(12, 87, 90, 0.05);
+}
+
+.dark-bg-panel .editorial-image-holder {
+    border-color: rgba(255, 255, 255, 0.06);
+}
+
+.floating-stat-badge {
+    position: absolute;
+    bottom: -20px;
+    right: -20px;
+    padding: 20px 24px;
+    border-radius: 16px;
+    box-shadow: var(--glass-shadow-heavy);
+    display: flex;
+    flex-direction: column;
+    z-index: 3;
+    max-width: 200px;
+    animation: badge-float 6s infinite ease-in-out;
+}
+
+.badge-accent {
+    font-family: var(--font-serif);
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--primary-teal-light);
+    line-height: 1;
+    margin-bottom: 4px;
+}
+
+.badge-accent-cyan {
+    font-family: var(--font-serif);
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--accent-cyan);
+    line-height: 1;
+    margin-bottom: 4px;
+}
+
+.badge-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-dark);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.badge-label-light {
+    font-size: 12px;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.6);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* --------------------------------------------------------------------------
+   Section 3 — Continuous Infinite Loop Marquee (Certificates)
+   -------------------------------------------------------------------------- */
+.certificates-section {
+    padding: 100px 0;
+    background-color: transparent;
+    position: relative;
+    overflow: hidden;
+}
+
+.marquee-outer-container {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    padding: 16px 0;
+}
+
+.marquee-outer-container::before,
+.marquee-outer-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: -1px;
+    width: 120px;
+    z-index: 5;
+    pointer-events: none;
+}
+
+.marquee-outer-container::before {
+    left: 0;
+    background: linear-gradient(to right, var(--bg-light-ice), transparent);
+}
+
+.marquee-outer-container::after {
+    right: 0;
+    background: linear-gradient(to left, var(--bg-light-ice), transparent);
+}
+
+.marquee-slider-wrapper {
+    display: flex;
+    width: 100%;
+}
+
+.marquee-track {
+    display: flex;
+    gap: 24px;
+    animation: marquee-infinite 15s linear infinite;
+    will-change: transform;
+}
+
+.marquee-track:hover {
+    animation-play-state: paused;
+}
+
+@keyframes marquee-infinite {
+    0% { transform: translate3d(0, 0, 0); }
+    100% { transform: translate3d(calc(-50% - 12px), 0, 0); }
+}
+
+.certificate-card-mini {
+    flex: 0 0 240px;
+    background: var(--bg-white);
+    border: 1px solid rgba(12, 87, 90, 0.04);
+    border-radius: 16px;
+    padding: 14px;
+    box-shadow: 0 8px 24px rgba(12, 87, 90, 0.03);
+    display: flex;
+    flex-direction: column;
+}
+
+.cert-img-wrapper-mini {
+    width: 100%;
+    aspect-ratio: 4/3;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.cert-img-mini {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+}
+
+.cert-info-mini h4 {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--primary-teal-dark);
+    margin-bottom: 4px;
+}
+
+.cert-info-mini p {
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+/* --------------------------------------------------------------------------
+   Section 4 — Services Accordion (Responsive two columns styling update)
+   -------------------------------------------------------------------------- */
+.about-services-section {
+    padding: 100px 0;
+    background-color: transparent;
+    position: relative;
+}
+
+.accordion-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+/* Two-column layout with high breathing space gap for desktops */
+@media (min-width: 1025px) {
+    .accordion-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+        max-width: 1400px;
+    }
+}
+
+.accordion-item {
+    border-radius: 16px;
+    overflow: hidden;
+    background: var(--bg-white);
+    border: 1px solid rgba(12, 87, 90, 0.04);
+    transition: all 0.3s ease;
+}
+
+.accordion-item:hover {
+    border-color: rgba(20, 184, 166, 0.2);
+    box-shadow: var(--glass-shadow);
+}
+
+.accordion-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 32px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.accordion-title-block {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.acc-num {
+    font-family: var(--font-dm);
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--primary-teal-light);
+}
+
+.accordion-title-block h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--primary-teal-dark);
+    letter-spacing: -0.01em;
+}
+
+.accordion-toggle {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background-color: var(--bg-light-ice);
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.accordion-item:hover .accordion-toggle {
+    background-color: var(--accent-teal);
+}
+
+.toggle-icon {
+    position: relative;
+    width: 12px;
+    height: 2px;
+    background-color: var(--primary-teal-dark);
+    display: block;
+}
+
+.toggle-icon::before {
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 12px;
+    background-color: var(--primary-teal-dark);
+    top: -5px;
+    left: 5px;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.accordion-item.active {
+    border-color: var(--accent-teal);
+}
+
+.accordion-item.active .accordion-toggle {
+    background-color: var(--accent-teal);
+    transform: rotate(45deg);
+}
+
+.accordion-item.active .toggle-icon::before {
+    opacity: 0;
+}
+
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s var(--transition-curve);
+}
+
+.accordion-inner {
+    padding: 0 32px 32px 32px;
+}
+
+.accordion-inner.split-layout {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 30px;
+    align-items: start;
+}
+
+.accordion-text-side p {
+    font-size: 14px;
+    color: var(--text-light);
+    line-height: 1.75;
+    margin-bottom: 20px;
+}
+
+.accordion-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.accordion-list li {
+    font-size: 13px;
+    color: var(--text-light);
+    position: relative;
+    padding-left: 16px;
+    line-height: 1.5;
+}
+
+.accordion-list li::before {
+    content: '■';
+    color: var(--accent-teal);
+    position: absolute;
+    left: 0;
+    top: 4px;
+    font-size: 8px;
+}
+
+.accordion-visual-side {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.service-demo-img {
+    width: 100%;
+    aspect-ratio: 16/10;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(12, 87, 90, 0.06);
+    background-size: cover;
+    background-position: center;
+}
+
+/* --------------------------------------------------------------------------
+   Section 5 — Employees Team Roster
+   -------------------------------------------------------------------------- */
+.team-section {
+    padding: 100px 0;
+    background-color: transparent;
+    position: relative;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.team-member {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.team-img-wrapper {
+    width: 100%;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 20px;
+    border: 2px solid rgba(12, 87, 90, 0.08);
+}
+
+.team-img {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+}
+
+.team-name {
+    font-family: var(--font-serif);
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--primary-teal-dark);
+    margin-bottom: 6px;
+    line-height: 1.3;
+}
+
+.team-details {
+    font-size: 13.5px;
+    color: var(--text-light);
+    line-height: 1.4;
+}
+
+/* --------------------------------------------------------------------------
+   Media Queries & Responsive Layout overrides
+   -------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+    .about-hero {
+        padding-top: 120px;
+        min-height: auto;
+    }
+
+    .about-hero-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .about-hero-content {
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .about-hero-portrait-composite {
+        margin-top: 20px;
+    }
+
+    .editorial-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .editorial-grid.invert-columns > :first-child {
+        order: 1;
+    }
+    .editorial-grid.invert-columns > :last-child {
+        order: 2;
+    }
+
+    .editorial-row {
+        padding: 60px 0;
+    }
+
+    .floating-stat-badge {
+        position: relative;
+        bottom: auto;
+        right: auto;
+        margin: 20px auto 0 auto;
+        max-width: 100%;
+        align-self: center;
+    }
+
+    .accordion-inner.split-layout {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .team-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+    }
+    /* Centers orphan elements on tablet views */
+    .team-member:nth-child(n+4) {
+        grid-column: span 1;
+    }
+    .about-hero-portrait-composite .geometric-dot,
+    .about-hero-portrait-composite .geometric-triangle {
+        display: none !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .accordion-inner {
+        padding: 0 20px 20px 20px;
+    }
+
+    .accordion-header {
+        padding: 16px 20px;
+    }
+
+    .accordion-title-block {
+        gap: 12px;
+    }
+
+    .accordion-title-block h3 {
+        font-size: 15px;
+    }
+
+    .marquee-outer-container::before,
+    .marquee-outer-container::after {
+        width: 50px;
+    }
+
+    .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .team-grid {
+        grid-template-columns: 1fr;
+    }
+}
