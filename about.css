@@ -41,6 +41,10 @@
     background-image: url("images/certificate.jpg"); 
 }
 
+.college-img { 
+    background-image: url("images/sapporo-dental-clg.jpg"); 
+}
+
 .service-img-1 { 
     background-image: url("images/service.jpg"); 
 }
