@@ -9,6 +9,10 @@
     background-image: url("images/doctor-no-bg.png");
 }
 
+.credential-img {
+    background-image: url("images/bmdc.jpg")   
+}
+
 .journey-img { 
     background-image: url("images/doctor-working.jpg"); 
 }
