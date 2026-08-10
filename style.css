@@ -595,7 +595,7 @@ a {
     width: 100%;
     aspect-ratio: 4/5;
     /* Restores height calculation relative to width so it does not collapse */
-    max-height: 800px;
+    max-height: 750px;
     overflow: visible;
     position: relative;
     border: none !important;
