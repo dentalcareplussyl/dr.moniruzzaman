@@ -606,7 +606,7 @@ a {
 
 .hero-portrait-frame .portrait-img {
     width: 100%;
-    height: 450%;
+    height: 400%;
     /* Increased from 135% to make the doctor's portrait significantly larger */
     position: absolute;
     bottom: -189%;
