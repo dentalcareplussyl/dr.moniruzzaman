@@ -609,7 +609,7 @@ a {
     height: 400%;
     /* Increased from 135% to make the doctor's portrait significantly larger */
     position: absolute;
-    bottom: -150%;
+    bottom: -145%;
     /* Lowered from -5% to shift the base further down into the layout */
     left: 0;
     background-size: contain;
