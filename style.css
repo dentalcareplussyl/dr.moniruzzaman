@@ -592,7 +592,7 @@ a {
 
 /* Dr. Moniruzzaman big portrait responsive sizes (clean rendering, borders & styles removed) */
 .hero-portrait-frame {
-    width: 80%;
+    width: 95%;
     aspect-ratio: 4/5;
     /* Restores height calculation relative to width so it does not collapse */
     max-height: 750px;
