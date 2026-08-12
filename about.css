@@ -24,27 +24,6 @@
 .safety-img { 
     background-image: url("images/patient.jpg"); 
 }
-
-.cert-img-1 { 
-    background-image: url("images/certificate.jpg"); 
-}
-
-.cert-img-2 { 
-    background-image: url("images/certificate.jpg"); 
-}
-
-.cert-img-3 { 
-    background-image: url("images/certificate.jpg"); 
-}
-
-.cert-img-4 { 
-    background-image: url("images/certificate.jpg"); 
-}
-
-.cert-img-5 { 
-    background-image: url("images/certificate.jpg"); 
-}
-
 .college-img { 
     background-image: url("images/sapporo-dental-clg.jpg"); 
 }
@@ -90,6 +69,9 @@
 }
 
 /* Dynamic Employee Roster Image Maps */
+.team-banner-img {
+    background-image: url("images/team.jpg");
+}
 .emp-img-1 {
     background-image: url("images/doctor.jpg");
 }
@@ -396,100 +378,101 @@
 }
 
 /* --------------------------------------------------------------------------
-   Section 3 — Continuous Infinite Loop Marquee (Certificates)
+   Section 3 — Clinical Team Banner Section (Bounded Proportional Design)
    -------------------------------------------------------------------------- */
-.certificates-section {
+.team-banner-section {
     padding: 100px 0;
     background-color: transparent;
     position: relative;
     overflow: hidden;
 }
 
-.marquee-outer-container {
+.team-banner-outer {
+    max-width: 1100px;
+    margin: 0 auto;
     width: 100%;
-    overflow: hidden;
+}
+
+.team-banner-wrapper {
     position: relative;
-    padding: 16px 0;
-}
-
-.marquee-outer-container::before,
-.marquee-outer-container::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    bottom: -1px;
-    width: 120px;
-    z-index: 5;
-    pointer-events: none;
-}
-
-.marquee-outer-container::before {
-    left: 0;
-    background: linear-gradient(to right, var(--bg-light-ice), transparent);
-}
-
-.marquee-outer-container::after {
-    right: 0;
-    background: linear-gradient(to left, var(--bg-light-ice), transparent);
-}
-
-.marquee-slider-wrapper {
-    display: flex;
     width: 100%;
+    border-radius: 28px;
+    overflow: visible; /* Allows content badges to float safely over borders */
+    border: 1px solid rgba(12, 87, 90, 0.05);
+    box-shadow: var(--glass-shadow-heavy);
 }
 
-.marquee-track {
-    display: flex;
-    gap: 24px;
-    animation: marquee-infinite 15s linear infinite;
-    will-change: transform;
-}
-
-.marquee-track:hover {
-    animation-play-state: paused;
-}
-
-@keyframes marquee-infinite {
-    0% { transform: translate3d(0, 0, 0); }
-    100% { transform: translate3d(calc(-50% - 12px), 0, 0); }
-}
-
-.certificate-card-mini {
-    flex: 0 0 240px;
-    background: var(--bg-white);
-    border: 1px solid rgba(12, 87, 90, 0.04);
-    border-radius: 16px;
-    padding: 14px;
-    box-shadow: 0 8px 24px rgba(12, 87, 90, 0.03);
-    display: flex;
-    flex-direction: column;
-}
-
-.cert-img-wrapper-mini {
-    width: 100%;
-    aspect-ratio: 4/3;
-    border-radius: 10px;
-    overflow: hidden;
-    margin-bottom: 10px;
-}
-
-.cert-img-mini {
-    width: 100%;
-    height: 100%;
+.team-banner-img {
     background-size: cover;
-    background-position: center;
+    background-position: center center;
+    width: 100%;
+    aspect-ratio: 1537/1023; /* Preserves photo proportions without squishing */
+    border-radius: 28px;
+    display: block;
 }
 
-.cert-info-mini h4 {
-    font-size: 13px;
+/* Floating content card matching existing details badges on the site */
+.team-banner-badge {
+    position: absolute;
+    bottom: -30px;
+    right: 40px;
+    padding: 24px 28px;
+    border-radius: 20px;
+    box-shadow: var(--glass-shadow-heavy);
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    z-index: 5;
+    max-width: 440px;
+    animation: badge-float 6s infinite ease-in-out;
+}
+
+.team-banner-badge .badge-icon {
+    font-size: 24px;
+    line-height: 1;
+}
+
+.team-banner-badge h4 {
+    font-size: 14px;
     font-weight: 700;
     color: var(--primary-teal-dark);
-    margin-bottom: 4px;
+    margin-bottom: 6px;
 }
 
-.cert-info-mini p {
-    font-size: 12px;
-    color: var(--text-muted);
+.team-banner-badge p {
+    font-size: 12.5px;
+    color: var(--text-light);
+    line-height: 1.6;
+}
+
+/* Tablet & Mobile responsive overrides */
+@media (max-width: 1024px) {
+    .team-banner-section {
+        padding: 60px 0;
+    }
+
+    .team-banner-badge {
+        position: relative;
+        bottom: auto;
+        right: auto;
+        margin: 20px auto 0 auto;
+        max-width: 100%;
+        align-self: center;
+        animation: none; /* Disable vertical float animations on small touch devices */
+        border: 1px solid rgba(12, 87, 90, 0.05);
+    }
+    
+    .team-banner-wrapper {
+        display: flex;
+        flex-direction: column;
+        border: none;
+        box-shadow: none;
+        background: transparent;
+    }
+
+    .team-banner-img {
+        border-radius: 20px;
+    }
 }
 
 /* --------------------------------------------------------------------------
