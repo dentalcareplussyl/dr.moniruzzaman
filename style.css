@@ -2077,6 +2077,98 @@ a {
 }
 
 /* ==========================================================================
+   Redesigned Developer Credit styling (EA Logo Integration)
+   ========================================================================== */
+
+/* Structure & Position at bottom-right of footer container */
+.footer-bottom-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.developer-credit {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* Sits at the right side on desktop */
+    gap: 5px; /* Breathing space between "developed by" and logo */
+}
+
+/* "developed by" text rules */
+.dev-by-text {
+    font-size: 10px;
+    color: rgba(255, 255, 255, 0.4);
+    text-transform: lowercase;
+    letter-spacing: 0.15em;
+    line-height: 1;
+    margin: 0;
+    pointer-events: none;
+    user-select: none;
+}
+
+/* Clean up link defaults and setup positioning */
+.footer-bottom-container a.developer-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    text-decoration: none !important;
+    background: none !important;
+    border: none !important;
+    padding: 0 !important;
+    color: inherit;
+    transition: none; /* Disables generic overrides */
+}
+
+/* Logo image styling (original colors, slightly muted initially) */
+.developer-logo-img {
+    height: auto;
+    width: 125px; /* Elegantly balanced sizing */
+    display: block;
+    opacity: 0.8;
+    filter: drop-shadow(0 0 0 transparent) brightness(1);
+    transition: transform 0.3s ease, opacity 0.3s ease, filter 0.3s ease;
+}
+
+/* Animated ↗ arrow rules */
+.hover-arrow {
+    display: inline-block;
+    font-size: 11px;
+    color: #e67e22; /* Matches the warm orange tone of the EA logo icon */
+    opacity: 0;
+    transform: translate(-3px, 3px); /* Starts slightly offset downwards-left */
+    transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.3s ease;
+}
+
+/* Hover effects */
+.footer-bottom-container a.developer-link:hover .developer-logo-img {
+    opacity: 1;
+    transform: scale(1.03); /* Slightly larger */
+    /* Soft orange/warm shadow glow matching the logo's native colors */
+    filter: drop-shadow(0 0 8px rgba(230, 126, 34, 0.45)) brightness(1.08); 
+}
+
+.footer-bottom-container a.developer-link:hover .hover-arrow {
+    opacity: 1;
+    transform: translate(0, 0); /* Slides smoothly upwards-right */
+}
+
+/* Responsive adjustment for Mobile/Tablet */
+@media (max-width: 1024px) {
+    .footer-bottom-container {
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        gap: 16px;
+    }
+
+    .developer-credit {
+        align-items: center; /* Sits in the center at very bottom on mobile screens */
+    }
+}
+
+/* ==========================================================================
    Bidirectional Scroll Entrance Animations
    ========================================================================== */
 .reveal {
