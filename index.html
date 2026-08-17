@@ -254,12 +254,17 @@
                 </div>
             </div>
 
-            <div class="why-choose-visuals reveal transition-right">
+<div class="why-choose-visuals reveal transition-right">
                 <div class="visual-stack-wrapper">
+                    <!-- Outer Wrapper: Holds the shadow & allows the badge to float outside -->
                     <div class="visual-card-large glass-panel-heavy">
-                        <div class="visual-img clinic-img-placeholder parallax-target" data-speed="0.05" role="img"
-                            aria-label="Sterilized clinical operatory setup complying with strict ISO healthcare procedures">
+                        <!-- NEW Inner Clip Container: Crops the image perfectly to the rounded corners -->
+                        <div class="card-inner-clip">
+                            <div class="visual-img clinic-img-placeholder parallax-target" data-speed="0.05" role="img"
+                                aria-label="Sterilized clinical operatory setup complying with strict ISO healthcare procedures">
+                            </div>
                         </div>
+                        <!-- Kept outside the inner-clip so it floats without clipping -->
                         <div class="visual-badge glass-panel interactive-hover-card">
                             <span class="badge-icon-large">🏥</span>
                             <div>
