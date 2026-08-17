@@ -92,6 +92,18 @@
     background-image: url("images/patient.jpg");
 }
 
+.curing-light-img {
+   background-image: url("images/curing-light.jpg");
+}
+
+.micro-motor-img {
+   background-image: url("images/micro-motor.jpg");
+}
+
+.xray-machine-img {
+   background-image: url("images/xray.jpg");
+}
+
 .avatar-1 {
     background-image: url("images/avatar1.jpg");
 }
