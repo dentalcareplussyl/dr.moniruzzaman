@@ -141,61 +141,90 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 // ==========================================================================
-    // 3. Cinematic Frame Parallax Engine (Polished for Precision Alignment)
+    // 3. Cinematic Frame Parallax Engine (Defensive & Midpoint Balanced)
     // ==========================================================================
     const parallaxTargets = document.querySelectorAll(".parallax-target");
     let parallaxFrameId = null;
 
-    // Helper function to safely calculate absolute offset relative to the document
+    // Defensive absolute offset calculator (avoids infinite loops on complex shadow DOMs)
     const getDocumentOffsetTop = (element) => {
+        if (!element || typeof element.getBoundingClientRect !== "function") return 0;
         let offsetTop = 0;
         let el = element;
-        while (el) {
-            offsetTop += el.offsetTop;
+        let depthLimit = 100; // Hard limit to guarantee no infinite loops
+        while (el && depthLimit > 0) {
+            offsetTop += el.offsetTop || 0;
             el = el.offsetParent;
+            depthLimit--;
         }
         return offsetTop;
     };
 
     const handleParallax = () => {
-        if (reducedMotion || window.innerWidth < 1025) return;
-        const scrollPos = window.scrollY;
-        const viewportHeight = window.innerHeight;
+        // Avoid throwing errors if elements do not exist on the page
+        if (!parallaxTargets || parallaxTargets.length === 0) return;
+
+        // Honor accessibility preferences
+        const reducedMotionSetting = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (reducedMotionSetting || window.innerWidth < 1025) return;
+
+        // Cross-browser safe scroll and height lookups
+        const scrollPos = window.scrollY || window.pageYOffset || document.documentElement.scrollTop || 0;
+        const viewportHeight = window.innerHeight || document.documentElement.clientHeight || 800;
 
         parallaxTargets.forEach(target => {
-            const rect = target.getBoundingClientRect();
-            if (rect.bottom > 0 && rect.top < viewportHeight) {
-                const speed = parseFloat(target.getAttribute('data-speed')) || 0.05;
-                // Use absolute document-relative Y offset instead of local offsetTop
-                const absoluteTop = getDocumentOffsetTop(target);
-                const offset = (scrollPos - (absoluteTop - viewportHeight)) * speed;
-                target.style.transform = `translate3d(0, ${offset}px, 0)`;
-            }
+            if (!target) return;
+
+            // Safe parsing of speed data attribute with limits to prevent extreme offsets
+            let speed = parseFloat(target.getAttribute('data-speed'));
+            if (isNaN(speed)) speed = 0.05;
+            speed = Math.max(-0.4, Math.min(0.4, speed)); // Cap translation to protect layout bounds
+
+            const absoluteTop = getDocumentOffsetTop(target);
+            const targetHeight = target.offsetHeight || target.getBoundingClientRect().height || 0;
+            
+            // Calculate midpoint centers of both viewport and target frame
+            const viewportCenter = scrollPos + (viewportHeight / 2);
+            const targetCenter = absoluteTop + (targetHeight / 2);
+            
+            const offset = (viewportCenter - targetCenter) * speed;
+
+            // Apply fixed decimals to prevent sub-pixel layout jittering
+            target.style.transform = `translate3d(0, ${offset.toFixed(2)}px, 0)`;
         });
         parallaxFrameId = null;
     };
 
+    // Performance-safe throttled scroll tracking
     window.addEventListener("scroll", () => {
         if (!parallaxFrameId) {
             parallaxFrameId = requestAnimationFrame(handleParallax);
         }
     }, { passive: true });
 
-    // Forces recalculation once all page assets (images, layouts) are fully loaded
+    // Refresh triggers to secure correct offsets on complete page asset load
     window.addEventListener("load", () => {
-        handleParallax();
+        if (typeof requestAnimationFrame !== "undefined") {
+            requestAnimationFrame(handleParallax);
+        } else {
+            handleParallax();
+        }
     });
 
     window.addEventListener("resize", () => {
         if (window.innerWidth < 1025) {
-            parallaxTargets.forEach(target => {
-                target.style.transform = '';
-            });
+            if (parallaxTargets && parallaxTargets.length > 0) {
+                parallaxTargets.forEach(target => {
+                    if (target) target.style.transform = '';
+                });
+            }
         } else {
-            handleParallax();
+            if (!parallaxFrameId) {
+                parallaxFrameId = requestAnimationFrame(handleParallax);
+            }
         }
     }, { passive: true });
-
+    
     // ==========================================================================
     // 4. Dynamic Counter (Odometer effect with clean memory reset loops)
     // ==========================================================================
