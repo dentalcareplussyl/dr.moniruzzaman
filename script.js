@@ -140,11 +140,22 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // ==========================================================================
-    // 3. Cinematic Frame Parallax Engine
+// ==========================================================================
+    // 3. Cinematic Frame Parallax Engine (Polished for Precision Alignment)
     // ==========================================================================
     const parallaxTargets = document.querySelectorAll(".parallax-target");
     let parallaxFrameId = null;
+
+    // Helper function to safely calculate absolute offset relative to the document
+    const getDocumentOffsetTop = (element) => {
+        let offsetTop = 0;
+        let el = element;
+        while (el) {
+            offsetTop += el.offsetTop;
+            el = el.offsetParent;
+        }
+        return offsetTop;
+    };
 
     const handleParallax = () => {
         if (reducedMotion || window.innerWidth < 1025) return;
@@ -155,7 +166,9 @@ document.addEventListener('DOMContentLoaded', () => {
             const rect = target.getBoundingClientRect();
             if (rect.bottom > 0 && rect.top < viewportHeight) {
                 const speed = parseFloat(target.getAttribute('data-speed')) || 0.05;
-                const offset = (scrollPos - (target.offsetTop - viewportHeight)) * speed;
+                // Use absolute document-relative Y offset instead of local offsetTop
+                const absoluteTop = getDocumentOffsetTop(target);
+                const offset = (scrollPos - (absoluteTop - viewportHeight)) * speed;
                 target.style.transform = `translate3d(0, ${offset}px, 0)`;
             }
         });
@@ -168,11 +181,18 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }, { passive: true });
 
+    // Forces recalculation once all page assets (images, layouts) are fully loaded
+    window.addEventListener("load", () => {
+        handleParallax();
+    });
+
     window.addEventListener("resize", () => {
         if (window.innerWidth < 1025) {
             parallaxTargets.forEach(target => {
                 target.style.transform = '';
             });
+        } else {
+            handleParallax();
         }
     }, { passive: true });
 
