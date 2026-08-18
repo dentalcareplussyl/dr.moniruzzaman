@@ -33,12 +33,20 @@
     /* Glassmorphism Presets */
     --glass-bg: rgba(255, 255, 255, 0.65);
     --glass-bg-heavy: rgba(255, 255, 255, 0.12);
-    --glass-bg-dark: rgba(7, 23, 25, 0.9);
+    --glass-bg-dark: rgba(7, 23, 25, 0.95);
     --glass-border: 1px solid rgba(255, 255, 255, 0.3);
     --glass-border-teal: 1px solid rgba(20, 184, 166, 0.2);
     --glass-shadow: 0 15px 35px 0 rgba(7, 23, 25, 0.05);
     --glass-shadow-heavy: 0 25px 55px 0 rgba(5, 42, 44, 0.15);
     --glass-blur: blur(12px) saturate(140%);
+    
+    /* Layout Z-Indices */
+    --z-bg: -2;
+    --z-base: 1;
+    --z-mid: 5;
+    --z-handle: 10;
+    --z-slider-input: 11;
+    --z-nav: 1000;
 }
 
 /* ==========================================================================
@@ -64,24 +72,8 @@
     background-image: url("images/clinic.jpg");
 }
 
-.scanner-tech-img {
-    background-image: url("images/equipment.jpg");
-}
-
-.microscope-tech-img {
-    background-image: url("images/office.jpg");
-}
-
-.laser-tech-img {
-    background-image: url("images/dental-procedure.jpg");
-}
-
 .waiting-area-img {
     background-image: url("images/waiting-area.jpg");
-}
-
-.operatory-img {
-    background-image: url("images/clinic.jpg");
 }
 
 .equipment-img {
@@ -114,46 +106,6 @@
 
 .avatar-3 {
     background-image: url("images/avatar3.jpg");
-}
-
-/* Reusable Interactive Particle Elements */
-.hero-particles {
-    position: absolute;
-    inset: -56px;
-    overflow: hidden;
-    pointer-events: none;
-    z-index: 0;
-}
-
-.hero-particle {
-    position: absolute;
-    width: var(--particle-size);
-    height: var(--particle-size);
-    border-radius: 50%;
-    background: rgba(197, 255, 249, 0.72);
-    box-shadow: 0 0 18px rgba(20, 184, 166, 0.8);
-    opacity: 0;
-    animation: particle-drift var(--particle-duration) ease-in-out infinite;
-    animation-delay: var(--particle-delay);
-}
-
-@keyframes particle-drift {
-
-    0%,
-    100% {
-        transform: translate3d(0, 26px, 0) scale(0.55);
-        opacity: 0;
-    }
-
-    30%,
-    70% {
-        opacity: 0.8;
-    }
-
-    50% {
-        transform: translate3d(var(--particle-x), -80px, 0) scale(1);
-        opacity: 0.95;
-    }
 }
 
 /* ==========================================================================
@@ -190,7 +142,7 @@ html.lenis body {
     width: 100vw;
     height: 100vh;
     overflow: hidden;
-    z-index: -2;
+    z-index: var(--z-bg);
     pointer-events: none;
     background-color: var(--bg-light-ice);
 }
@@ -233,16 +185,12 @@ html.lenis body {
 }
 
 @keyframes blob-float {
-
-    0%,
-    100% {
+    0%, 100% {
         transform: translate(0, 0) scale(1);
     }
-
     33% {
         transform: translate(60px, -40px) scale(1.15);
     }
-
     66% {
         transform: translate(-40px, 80px) scale(0.9);
     }
@@ -260,8 +208,6 @@ html.lenis body {
 }
 
 html {
-    scroll-behavior: smooth;
-    scroll-padding-top: 100px;
     overflow-x: hidden;
     width: 100%;
     scroll-snap-type: y proximity;
@@ -285,26 +231,20 @@ body {
     background-color: var(--bg-light-ice);
 }
 
-.sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0;
-}
-
 /* Fixed non-hero background image vertical alignment and positioning issues globally */
-img,
 [class*="-img"],
 .tech-img-placeholder,
 .gallery-img {
     background-size: cover;
     background-position: center center !important;
     background-repeat: no-repeat;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    display: block;
 }
 
 a {
@@ -334,7 +274,6 @@ a {
 }
 
 @media (min-width: 1025px) {
-
     .glass-panel,
     .glass-panel-heavy,
     .glass-panel-dark {
@@ -354,7 +293,7 @@ a {
     width: 100%;
     top: 0;
     left: 0;
-    z-index: 1000;
+    z-index: var(--z-nav);
     transition: background-color var(--transition-speed) var(--transition-curve),
         border-bottom var(--transition-speed) var(--transition-curve),
         box-shadow var(--transition-speed) var(--transition-curve),
@@ -395,9 +334,6 @@ a {
 
 .clinic-logo {
     width: 205px;
-    height: auto;
-    object-fit: contain;
-    display: block;
     transition: width 0.3s ease;
 }
 
@@ -408,7 +344,7 @@ a {
 .nav-left {
     display: flex;
     align-items: center;
-    gap: clamp(16px, 2.5vw, 36px);
+    gap: clamp(10px, 1.5vw, 36px);
     grid-column: 1;
     justify-content: flex-start;
 }
@@ -416,7 +352,7 @@ a {
 .nav-right {
     display: flex;
     align-items: center;
-    gap: clamp(16px, 2.5vw, 36px);
+    gap: clamp(10px, 1.5vw, 36px);
     grid-column: 3;
     justify-content: flex-end;
 }
@@ -428,6 +364,7 @@ a {
     position: relative;
     padding: 8px 0;
     transition: color 0.3s ease;
+    white-space: nowrap;
 }
 
 /* Home Page Transparent Header Links */
@@ -580,7 +517,7 @@ a {
 }
 
 .hero-desc {
-    opacity: 80%;
+    opacity: 0.8;
     font-size: clamp(15px, 1.2vw, 17px);
     color: rgba(255, 255, 255, 0.85);
     margin-bottom: 32px;
@@ -602,40 +539,26 @@ a {
     justify-content: flex-end;
 }
 
-/* Dr. Moniruzzaman big portrait responsive sizes (clean rendering, borders & styles removed) */
+/* Dynamic Boundary Sizing for Doctor Portrait */
 .hero-portrait-frame {
-    width: 95%;
-    aspect-ratio: 4/5;
-    /* Restores height calculation relative to width so it does not collapse */
-    max-height: 750px;
+    width: 100%;
+    max-width: 480px;
+    aspect-ratio: 4 / 5;
     overflow: visible;
     position: relative;
     border: none !important;
     box-shadow: none !important;
-    backdrop-filter: none !important;
-    -webkit-backdrop-filter: none !important;
 }
 
 .hero-portrait-frame .portrait-img {
-    width: 95%;
-    height: 400%;
-    /* Increased from 135% to make the doctor's portrait significantly larger */
+    width: 100%;
+    height: 125%;
     position: absolute;
-    bottom: -158%;
-    /* Lowered from -5% to shift the base further down into the layout */
+    bottom: 0;
     left: 0;
     background-size: contain;
     background-repeat: no-repeat;
     background-position: bottom center;
-}
-
-.hero-doctor-caption {
-    margin-top: 20px;
-    font-family: var(--font-serif);
-    font-size: 18px;
-    color: var(--text-white);
-    letter-spacing: 0.04em;
-    text-align: center;
 }
 
 /* Relocated metrics module inside hero-content text block with clean borders */
@@ -653,16 +576,6 @@ a {
     padding: 24px 0 0 0;
 }
 
-.hero-divider {
-    position: absolute;
-    bottom: -1px;
-    left: 0;
-    z-index: 3;
-    width: 100%;
-    height: 60px;
-    background: linear-gradient(to top, var(--bg-light-ice), transparent);
-}
-
 /* Reusable Button System */
 .btn {
     display: inline-flex;
@@ -677,6 +590,7 @@ a {
     border: none;
     transition: all 0.3s ease;
     position: relative;
+    text-align: center;
 }
 
 .btn-teal {
@@ -741,7 +655,7 @@ a {
     height: 60px;
     background: linear-gradient(to top, var(--bg-light-ice), transparent);
     pointer-events: none;
-    z-index: 5;
+    z-index: var(--z-mid);
     margin-top: -1px;
 }
 
@@ -857,7 +771,6 @@ a {
     transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-/* Micro-animations */
 .service-panel:hover .service-icon-circle {
     transform: translateY(-3px) rotate(5deg);
 }
@@ -876,37 +789,18 @@ a {
 }
 
 @keyframes gem-pulse {
-
-    0%,
-    100% {
-        transform: scale(1);
-    }
-
-    50% {
-        transform: scale(1.08);
-    }
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.08); }
 }
 
 @keyframes gear-rotate {
-    0% {
-        transform: rotate(0deg);
-    }
-
-    100% {
-        transform: rotate(360deg);
-    }
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
 @keyframes micro-drift {
-
-    0%,
-    100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-3px);
-    }
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-3px); }
 }
 
 .service-panel-title {
@@ -942,6 +836,11 @@ a {
 .service-sublinks li::before {
     content: '▪';
     color: var(--accent-teal);
+}
+
+.service-section-action {
+    text-align: center;
+    margin-top: 40px;
 }
 
 /* ==========================================================================
@@ -1009,7 +908,7 @@ a {
     width: 90%;
     height: 100%;
     border-radius: 24px;
-    overflow: visible; /* Changed from hidden to prevent badge clipping */
+    overflow: visible;
     position: relative;
     border: 1px solid rgba(12, 87, 90, 0.06);
     box-shadow: var(--glass-shadow-heavy);
@@ -1019,8 +918,8 @@ a {
 .card-inner-clip {
     width: 100%;
     height: 100%;
-    border-radius: 24px; /* Matches parent card rounding */
-    overflow: hidden;    /* Clips the inner image cleanly */
+    border-radius: 24px;
+    overflow: hidden;
     position: relative;
     backface-visibility: hidden;
     -webkit-backface-visibility: hidden;
@@ -1046,15 +945,8 @@ a {
 }
 
 @keyframes badge-float {
-
-    0%,
-    100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-6px);
-    }
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-6px); }
 }
 
 .badge-icon-large {
@@ -1070,61 +962,6 @@ a {
 .visual-badge p {
     font-size: 11px;
     color: var(--text-muted);
-}
-
-/* Floating Diagnostics glass transparent card configuration */
-.visual-card-floating {
-    position: absolute;
-    top: 10%;
-    right: 0;
-    padding: 24px;
-    border-radius: 20px;
-    color: var(--text-white);
-    width: 240px;
-    background: rgba(255, 255, 255, 0.08) !important;
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.15) !important;
-}
-
-.visual-card-floating h4 {
-    font-size: 14px;
-    margin-bottom: 4px;
-}
-
-.visual-card-floating p {
-    font-size: 11px;
-    color: var(--text-muted);
-    margin-bottom: 14px;
-}
-
-.radar-scan {
-    height: 4px;
-    width: 100%;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-    position: relative;
-    overflow: hidden;
-}
-
-.radar-line {
-    position: absolute;
-    top: 0;
-    left: -100%;
-    height: 100%;
-    width: 80%;
-    background: linear-gradient(90deg, transparent, var(--accent-teal), transparent);
-    animation: sweep 2.5s infinite linear;
-}
-
-@keyframes sweep {
-    0% {
-        left: -100%;
-    }
-
-    100% {
-        left: 100%;
-    }
 }
 
 /* ==========================================================================
@@ -1260,6 +1097,11 @@ a {
     color: var(--primary-teal-dark);
 }
 
+.doctor-section-action {
+    text-align: center;
+    margin-top: 40px;
+}
+
 /* ==========================================================================
    Before / After Interactive Reveal
    ========================================================================== */
@@ -1355,7 +1197,7 @@ a {
     height: 100%;
     background-color: transparent;
     transform: translateX(-50%);
-    z-index: 10;
+    z-index: var(--z-handle);
     pointer-events: none;
 }
 
@@ -1367,7 +1209,7 @@ a {
     margin: 0;
     opacity: 0;
     cursor: ew-resize;
-    z-index: 11;
+    z-index: var(--z-slider-input);
     pointer-events: auto;
     touch-action: pan-y;
 }
@@ -1408,20 +1250,13 @@ a {
 }
 
 @keyframes spin-clockwise {
-    0% {
-        transform: rotate(0deg);
-    }
-
-    100% {
-        transform: rotate(360deg);
-    }
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
-.slider-caption-block {
-    margin-top: 16px;
-    text-align: center;
-    font-size: 13px;
-    color: var(--text-light);
+.arrow-indicator {
+    color: var(--accent-teal);
+    font-size: 11px;
 }
 
 /* ==========================================================================
@@ -1598,34 +1433,19 @@ a {
 }
 
 /* Gallery Video Integration & Optimization */
-
 .gallery-video {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Maintains aspect ratio by clipping excess space without distortion */
+    object-fit: cover;
     display: block;
     transition: transform 0.6s var(--transition-curve);
-    
-    /* Hardware acceleration rules to offload rendering to the GPU */
     transform: translate3d(0, 0, 0);
     will-change: transform;
     backface-visibility: hidden;
 }
 
-/* Match the zoom transition on user hover */
 .gallery-item:hover .gallery-video {
     transform: scale(1.05) translate3d(0, 0, 0);
-}
-
-/* Accessibility: Turn off zoom transformations and auto-play on devices with reduced motion enabled */
-@media (prefers-reduced-motion: reduce) {
-    .gallery-video {
-        transition: none !important;
-        transform: none !important;
-    }
-    .gallery-item:hover .gallery-video {
-        transform: none !important;
-    }
 }
 
 /* ==========================================================================
@@ -1672,15 +1492,11 @@ a {
     gap: 12px;
 }
 
-/* Correct display size rules for reviewer profile avatar circles */
 .author-avatar {
     width: 46px;
     height: 46px;
     border-radius: 50%;
     border: 2px solid rgba(20, 184, 166, 0.2);
-    background-size: cover;
-    background-position: center center;
-    background-repeat: no-repeat;
     display: inline-block;
 }
 
@@ -1840,6 +1656,15 @@ a {
     color: var(--text-white);
 }
 
+/* Systematic Style Replacement for Inline overrides */
+.cta-huge-title {
+    color: var(--text-white);
+    font-family: var(--font-serif);
+    font-size: clamp(28px, 3.5vw, 44px);
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
 .cta-desc {
     font-size: 14px;
     color: rgba(255, 255, 255, 0.7);
@@ -1862,48 +1687,6 @@ a {
     gap: 16px;
     align-items: center;
     justify-content: center;
-}
-
-.form-group input,
-.form-group select {
-    width: 100%;
-    padding: 16px 20px;
-    border-radius: 12px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    background-color: rgba(255, 255, 255, 0.04);
-    color: var(--text-white);
-    font-family: var(--font-sans);
-    font-size: 13px;
-    outline: none;
-    transition: border-color var(--transition-speed) var(--transition-curve);
-}
-
-.form-group input:focus,
-.form-group select:focus {
-    border-color: var(--accent-teal);
-}
-
-.form-group select option {
-    background-color: var(--bg-dark-indigo);
-    color: var(--text-white);
-}
-
-.form-consent {
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 11px;
-    line-height: 1.5;
-    cursor: pointer;
-}
-
-.form-consent input {
-    accent-color: var(--accent-teal);
-}
-
-.form-status {
-    min-height: 1.5em;
-    color: var(--accent-teal);
-    font-size: 12px;
-    text-align: center;
 }
 
 .w-100 {
@@ -1993,18 +1776,6 @@ a {
     z-index: 1;
 }
 
-.map-pin-overlay {
-    position: absolute;
-    z-index: 2;
-    top: 50%;
-    left: 50%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: var(--bg-dark-indigo);
-    transform: translate(-50%, -100%);
-}
-
 /* ==========================================================================
    Footer Base Layout (With Grayscale-to-Color PNG Logo Filters)
    ========================================================================== */
@@ -2049,7 +1820,6 @@ a {
     gap: 16px;
 }
 
-/* Grey default to full-color hover filter animations for local social logos */
 .footer-social-icons a {
     display: inline-block;
     transition: transform 0.3s ease;
@@ -2131,27 +1901,14 @@ a {
     color: var(--accent-teal);
 }
 
-/* ==========================================================================
-   Redesigned Developer Credit styling (EA Logo Integration)
-   ========================================================================== */
-
-/* Structure & Position at bottom-right of footer container */
-.footer-bottom-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 20px;
-}
-
+/* Redesigned Developer Credit styling (EA Logo Integration) */
 .developer-credit {
     display: flex;
     flex-direction: column;
-    align-items: flex-end; /* Sits at the right side on desktop */
-    gap: 5px; /* Breathing space between "developed by" and logo */
+    align-items: flex-end;
+    gap: 5px;
 }
 
-/* "developed by" text rules */
 .dev-by-text {
     font-size: 10px;
     color: rgba(255, 255, 255, 0.4);
@@ -2163,7 +1920,6 @@ a {
     user-select: none;
 }
 
-/* Clean up link defaults and setup positioning */
 .footer-bottom-container a.developer-link {
     display: inline-flex;
     align-items: center;
@@ -2173,54 +1929,36 @@ a {
     border: none !important;
     padding: 0 !important;
     color: inherit;
-    transition: none; /* Disables generic overrides */
+    transition: none;
 }
 
-/* Logo image styling (original colors, slightly muted initially) */
 .developer-logo-img {
     height: auto;
-    width: 125px; /* Elegantly balanced sizing */
+    width: 125px;
     display: block;
     opacity: 0.8;
     filter: drop-shadow(0 0 0 transparent) brightness(1);
     transition: transform 0.3s ease, opacity 0.3s ease, filter 0.3s ease;
 }
 
-/* Animated ↗ arrow rules */
 .hover-arrow {
     display: inline-block;
     font-size: 11px;
-    color: #e67e22; /* Matches the warm orange tone of the EA logo icon */
+    color: #e67e22;
     opacity: 0;
-    transform: translate(-3px, 3px); /* Starts slightly offset downwards-left */
+    transform: translate(-3px, 3px);
     transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.3s ease;
 }
 
-/* Hover effects */
 .footer-bottom-container a.developer-link:hover .developer-logo-img {
     opacity: 1;
-    transform: scale(1.03); /* Slightly larger */
-    /* Soft orange/warm shadow glow matching the logo's native colors */
+    transform: scale(1.03);
     filter: drop-shadow(0 0 8px rgba(230, 126, 34, 0.45)) brightness(1.08); 
 }
 
 .footer-bottom-container a.developer-link:hover .hover-arrow {
     opacity: 1;
-    transform: translate(0, 0); /* Slides smoothly upwards-right */
-}
-
-/* Responsive adjustment for Mobile/Tablet */
-@media (max-width: 1024px) {
-    .footer-bottom-container {
-        flex-direction: column;
-        justify-content: center;
-        text-align: center;
-        gap: 16px;
-    }
-
-    .developer-credit {
-        align-items: center; /* Sits in the center at very bottom on mobile screens */
-    }
+    transform: translate(0, 0);
 }
 
 /* ==========================================================================
@@ -2259,7 +1997,7 @@ html.js-enabled .reveal {
 }
 
 html.js-enabled .text-reveal {
-    opacity: 90%;
+    opacity: 0.9;
     transform: translateY(15px);
 }
 
@@ -2345,6 +2083,45 @@ select:focus-visible {
     transform: translateY(-7px) rotate(-45deg);
 }
 
+/* Desktop-to-Tablet Link Collision Fix (Viewports 1025px - 1180px) */
+@media (min-width: 1025px) and (max-width: 1180px) {
+    .nav-left, .nav-right {
+        gap: clamp(8px, 1.2vw, 16px);
+    }
+    .nav-link {
+        font-size: 11px;
+        letter-spacing: 0.1em;
+    }
+    .phone-btn {
+        padding: 8px 14px;
+        font-size: 11px;
+    }
+    .clinic-logo {
+        width: 160px;
+    }
+}
+
+/* Intermediate Tablet Landscape Gallery Configuration */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .gallery-mosaic-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto;
+        gap: 20px;
+    }
+    .item-large {
+        grid-column: span 2;
+        grid-row: span 1;
+        height: 320px;
+    }
+    .item-medium {
+        grid-column: span 1;
+        height: 230px;
+    }
+    .gallery-item {
+        height: 230px;
+    }
+}
+
 /* Smaller Laptops & Mid-range Displays (Breathing Space & Alignment Fixes) */
 @media (min-width: 1025px) and (max-width: 1360px) {
     .container {
@@ -2396,7 +2173,7 @@ select:focus-visible {
 
 @media (max-width: 1024px) {
     html {
-        scroll-snap-type: none;
+        scroll-snap-type: none !important;
     }
 
     .container {
@@ -2490,23 +2267,22 @@ select:focus-visible {
     .hero-aside {
         order: -1;
         margin-top: 10px;
-        /* Normal gap to clear the navbar safely */
-        margin-bottom: 0px;
-        /* Zero margin so it doesn't push the hero text down */
-    }
-
-    .hero-portrait-frame .portrait-img {
-        transform: translateY(35px);
-        /* Lowers only the physical doctor image without pushing down the text underneath */
+        margin-bottom: 0;
     }
 
     .hero-portrait-frame {
         max-width: 320px;
         height: 400px;
-        /* Give a static height on tablet to keep the image centered and scalable */
     }
 
-    .hero-metrics-grid {
+    .hero-portrait-frame .portrait-img {
+        height: 100%;
+        transform: translateY(0);
+    }
+
+    /* Fixed Metrics Row Display Collision */
+    .hero-content .hero-metrics-grid {
+        display: grid !important;
         grid-template-columns: 1fr;
         gap: 20px;
         text-align: center;
@@ -2569,6 +2345,7 @@ select:focus-visible {
     .gallery-mosaic-grid {
         grid-template-columns: 1fr;
         grid-template-rows: auto;
+        gap: 16px;
     }
 
     .item-large,
@@ -2607,6 +2384,21 @@ select:focus-visible {
         gap: 16px;
         text-align: center;
     }
+
+    .developer-credit {
+        align-items: center;
+    }
+}
+
+/* Defensive Label Collision Fix on Ultra-Narrow Viewports */
+@media (max-width: 360px) {
+    .status-indicator-badge {
+        font-size: 10px;
+        padding: 6px 12px;
+        top: 10px;
+    }
+    .tag-before { left: 10px; }
+    .tag-after { right: 10px; }
 }
 
 @media (max-width: 480px) {
