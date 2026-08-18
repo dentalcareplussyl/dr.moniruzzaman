@@ -9,9 +9,7 @@
     <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:ital,wght@0,400..700;1,400&family=Poppins:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:ital,wght@0,400..700;1,400&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body id="home-page-body">
@@ -26,24 +24,22 @@
     <!-- Header Navigation -->
     <header class="site-header" id="siteHeader">
         <div class="header-container">
-            <button class="mobile-menu-toggle" aria-label="Toggle Navigation" aria-expanded="false"
-                aria-controls="mainNav">
+            <button class="mobile-menu-toggle" aria-label="Toggle Navigation" aria-expanded="false" aria-controls="mainNav">
                 <span class="line"></span>
                 <span class="line"></span>
                 <span class="line"></span>
             </button>
 
             <a href="index.html" class="logo" aria-label="Dental Care Plus home">
-                <img class="clinic-logo" src="images/logo.png"
-                    alt="Dental Care Plus logo">
+                <img class="clinic-logo" src="images/logo.png" alt="Dental Care Plus logo">
             </a>
 
             <div class="nav-wrapper" id="mainNav">
                 <nav class="nav-left" aria-label="Primary Navigation Left">
                     <a href="#home" class="nav-link active-link" data-section="home">HOME</a>
-                    <a href="about.html#services" class="nav-link" data-section="services">SERVICES</a>
-                    <a href="about.html#about" class="nav-link" data-section="doctor">SURGEON</a>
-                    <a href="about.html#about" class="nav-link" data-section="team">TEAM</a>
+                    <a href="#services" class="nav-link" data-section="services">SERVICES</a>
+                    <a href="#doctor" class="nav-link" data-section="doctor">SURGEON</a>
+                    <a href="#experience" class="nav-link" data-section="experience">TEAM</a>
                 </nav>
 
                 <nav class="nav-right" aria-label="Primary Navigation Right">
@@ -59,8 +55,8 @@
     <main>
         <!-- Hero Section -->
         <section id="home" class="hero snap-section" aria-label="Welcome">
-            <video class="hero-video" autoplay muted loop playsinline preload="metadata" aria-hidden="true">
-                <source src="videos//hero-bg.mp4" type="video/mp4">
+            <video class="hero-video" autoplay muted loop playsinline preload="metadata" poster="images/hero-poster.jpg" aria-hidden="true">
+                <source src="videos/hero-bg.mp4" type="video/mp4">
             </video>
             <div class="hero-overlay-gradient"></div>
 
@@ -75,20 +71,18 @@
                     <p class="hero-desc">Modern restorative care that protects natural tooth structure while delivering natural, lasting results.</p>
                     <div class="hero-actions">
                         <a href="#book" class="btn btn-teal">Request Appointment</a>
-                        <a href="index.html#location" class="btn btn-outline">Location On Map</a>
+                        <a href="#location" class="btn btn-outline">Location On Map</a>
                     </div>
 
                     <!-- Relocated Metrics Module inside text column to remove vertical gap -->
                     <div class="hero-metrics">
                         <div class="hero-metrics-grid">
                             <div class="trust-item">
-                                <span class="trust-val"><span class="odometer" data-target="16">16</span><span
-                                        class="trust-val-suffix">+</span></span>
+                                <span class="trust-val"><span class="odometer" data-target="16">0</span><span class="trust-val-suffix">+</span></span>
                                 <span class="trust-label">Years Practice</span>
                             </div>
                             <div class="trust-item">
-                                <span class="trust-val"><span class="odometer" data-target="56000">56000</span><span
-                                        class="trust-val-suffix">+</span></span>
+                                <span class="trust-val"><span class="odometer" data-target="56000">0</span><span class="trust-val-suffix">+</span></span>
                                 <span class="trust-label">Successful Cases</span>
                             </div>
                         </div>
@@ -96,25 +90,20 @@
                     <br>
                     <div class="footer-social-icons">
                         <a href="https://www.facebook.com/Dentalcareplussyl" target="_blank" rel="noopener noreferrer">
-                            <img src="images/facebook-logo.png"
-                                alt="visit facebook page" class="social-icon-png">
+                            <img src="images/facebook-logo.png" alt="visit facebook page" class="social-icon-png">
                         </a>
                         <a href="https://wa.me/8801675190777" target="_blank" rel="noopener noreferrer">
-                            <img src="images/whatsapp-logo.png"
-                                alt="contact via Whatsapp" class="social-icon-png">
+                            <img src="images/whatsapp-logo.png" alt="contact via Whatsapp" class="social-icon-png">
                         </a>
                         <a href="mailto:dr_monir93@yahoo.com" target="_blank" rel="noopener noreferrer">
-                            <img src="images/gmail-logo.png" alt="Mail Us"
-                                class="social-icon-png">
+                            <img src="images/gmail-logo.png" alt="Mail Us" class="social-icon-png">
                         </a>
                     </div>
                 </div>
 
                 <aside class="hero-aside reveal transition-right" aria-label="Lead surgeon portrait">
                     <div class="hero-portrait-frame">
-                        <div class="portrait-img" role="img"
-                            aria-label="Portrait of Chief Consultant Surgeon Dr. Md. Moniruzzaman Monir inside the clinic">
-                        </div>
+                        <div class="portrait-img" role="img" aria-label="Portrait of Chief Consultant Surgeon Dr. Md. Moniruzzaman Monir inside the clinic"></div>
                     </div>
                 </aside>
             </div>
@@ -129,8 +118,7 @@
                 <div class="section-header-centered reveal transition-up">
                     <span class="section-tag">ELITE TREATMENT SERVICES</span>
                     <h2 class="section-title">Clinical expertise designed for life.</h2>
-                    <p class="section-lead-p">We blend biologically safe materials with cutting-edge digital diagnostics
-                        to deliver dental care that lasts generations.</p>
+                    <p class="section-lead-p">We blend biologically safe materials with cutting-edge digital diagnostics to deliver dental care that lasts generations.</p>
                 </div>
 
                 <div class="services-modern-grid">
@@ -140,8 +128,7 @@
                             <div class="service-icon-circle">🦷</div>
                         </div>
                         <h3 class="service-panel-title">Preventive & General Dental Care</h3>
-                        <p class="service-panel-desc">Essential care focused on keeping your teeth and gums healthy, preventing future problems,
-                             and maintaining a clean, comfortable smile.</p>
+                        <p class="service-panel-desc">Essential care focused on keeping your teeth and gums healthy, preventing future problems, and maintaining a clean, comfortable smile.</p>
                         <ul class="service-sublinks">
                             <li>Routine Oral Examinations, Scaling & Polishing</li>
                             <li>Pit & Fissure Sealant Application</li>
@@ -158,8 +145,7 @@
                             <div class="service-icon-circle">🛠️</div>
                         </div>
                         <h3 class="service-panel-title">Restorative & Reconstructive Dentistry</h3>
-                        <p class="service-panel-desc">From repairing a damaged tooth to restoring an entire smile, 
-                            we provide precise treatments designed to bring back strength, function, and natural appearance.</p>
+                        <p class="service-panel-desc">From repairing a damaged tooth to restoring an entire smile, we provide precise treatments designed to bring back strength, function, and natural appearance.</p>
                         <ul class="service-sublinks">
                             <li>Biocompatible Restorations (Composite Fillings)</li>
                             <li>Precision Root Canal Therapy (RCT)</li>
@@ -178,8 +164,7 @@
                             <div class="service-icon-circle">✨</div>
                         </div>
                         <h3 class="service-panel-title">Cosmetic & Smile Dentistry</h3>
-                        <p class="service-panel-desc">Aesthetic treatments designed to refine your smile while 
-                            preserving a natural look, balanced proportions, and healthy tooth structure.</p>
+                        <p class="service-panel-desc">Aesthetic treatments designed to refine your smile while preserving a natural look, balanced proportions, and healthy tooth structure.</p>
                         <ul class="service-sublinks">
                             <li>Porcelain Veneers & Smile Artistry</li>
                             <li>Chairside Teeth Whitening & Cosmetic Contouring</li>
@@ -199,8 +184,7 @@
                             <div class="service-icon-circle">⚙️</div>
                         </div>
                         <h3 class="service-panel-title">Orthodontic, Gum & Surgical Care</h3>
-                        <p class="service-panel-desc">Specialized treatments for tooth alignment, gum health, 
-                            wisdom teeth, extractions, and urgent dental needs.</p>
+                        <p class="service-panel-desc">Specialized treatments for tooth alignment, gum health, wisdom teeth, extractions, and urgent dental needs.</p>
                         <ul class="service-sublinks">
                             <li>Fixed Orthodontic Treatment</li>
                             <li>Orthodontic Bracket & Retainer Bonding</li>
@@ -214,88 +198,82 @@
                         </ul>
                     </div>
                 </div>
-                <div style="text-align: center; margin-top: 40px;">
+                <div class="service-section-action">
                     <a href="about.html#services" class="btn btn-teal">See All Services &rarr;</a>
                 </div>
             </div>
             <div class="section-divider-wave" aria-hidden="true"></div>
         </section>
 
-    <!-- Why Choose Us Section -->
-    <section id="why-choose" class="why-choose-section snap-section">
-        <div class="container layout-split-grid">
-            <div class="why-choose-content reveal transition-left">
-                <span class="section-tag">WHY WORK WITH US</span>
-                <h2 class="section-title text-left">Clinical Standards Beyond Borders</h2>
-                <p class="why-choose-p">
-                    <strong>Our rapid-care service ensures prompt attention when you need immediate dental assistance with a help of our advanced tools.</strong>
-                    <br>
-                    At Dental Care Plus, your comfort always comes first. From routine dental care to complete smile makeovers, we provide friendly, attentive treatment with exceptional care.
+        <!-- Why Choose Us Section -->
+        <section id="why-choose" class="why-choose-section snap-section">
+            <div class="container layout-split-grid">
+                <div class="why-choose-content reveal transition-left">
+                    <span class="section-tag">WHY WORK WITH US</span>
+                    <h2 class="section-title text-left">Clinical Standards Beyond Borders</h2>
+                    <p class="why-choose-p">
+                        <strong>Our rapid-care service ensures prompt attention when you need immediate dental assistance with a help of our advanced tools.</strong>
+                        <br>
+                        At Dental Care Plus, your comfort always comes first. From routine dental care to complete smile makeovers, we provide friendly, attentive treatment with exceptional care.
                     </p>
 
-                <div class="excellence-checklist">
-                    
-                    <div class="checklist-item">
-                        <div class="check-icon" aria-hidden="true">✓</div>
-                        <div class="check-text">
-                            <strong>Emergency Trauma Managment:</strong> Time-critical immediate clinical care for acute oral issues.
-                        </div>
-                    </div>
-                    
-                    <div class="checklist-item">
-                        <div class="check-icon" aria-hidden="true">✓</div>
-                        <div class="check-text">
-                            <strong>Advanced Technology:</strong> Digital RVG X-ray, laser technology and precision cosmetic dentistry
-                        </div>
-                    </div>
-                        
-                    <div class="checklist-item">
-                        <div class="check-icon" aria-hidden="true">✓</div>
-                        <div class="check-text">
-                            <strong>Long-Term Records:</strong> Patient records are carefully preserved over the years, allowing treatment history to be retrieved even from a decade ago.
-                        </div>
-                    </div>
-                    </div>
-                </div>
-            
-
-<div class="why-choose-visuals reveal transition-right">
-                <div class="visual-stack-wrapper">
-                    <!-- Outer Wrapper: Holds the shadow & allows the badge to float outside -->
-                    <div class="visual-card-large glass-panel-heavy">
-                        <!-- NEW Inner Clip Container: Crops the image perfectly to the rounded corners -->
-                        <div class="card-inner-clip">
-                            <div class="visual-img clinic-img-placeholder parallax-target" data-speed="0.05" role="img"
-                                aria-label="Sterilized clinical operatory setup complying with strict ISO healthcare procedures">
+                    <div class="excellence-checklist">
+                        <div class="checklist-item">
+                            <div class="check-icon" aria-hidden="true">✓</div>
+                            <div class="check-text">
+                                <strong>Emergency Trauma Management:</strong> Time-critical immediate clinical care for acute oral issues.
                             </div>
                         </div>
-                        <!-- Kept outside the inner-clip so it floats without clipping -->
-                        <div class="visual-badge glass-panel interactive-hover-card">
-                            <span class="badge-icon-large">🏥</span>
-                            <div>
-                                <h4>ISO Standards</h4>
-                                <p>Sterilization Protocol</p>
+
+                        <div class="checklist-item">
+                            <div class="check-icon" aria-hidden="true">✓</div>
+                            <div class="check-text">
+                                <strong>Advanced Technology:</strong> Digital RVG X-ray, laser technology and precision cosmetic dentistry.
+                            </div>
+                        </div>
+
+                        <div class="checklist-item">
+                            <div class="check-icon" aria-hidden="true">✓</div>
+                            <div class="check-text">
+                                <strong>Long-Term Records:</strong> Patient records are carefully preserved over the years, allowing treatment history to be retrieved even from a decade ago.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="why-choose-visuals reveal transition-right">
+                    <div class="visual-stack-wrapper">
+                        <!-- Outer Wrapper: Holds the shadow & allows the badge to float outside -->
+                        <div class="visual-card-large glass-panel-heavy">
+                            <!-- Inner Clip Container: Crops the image to the rounded corners -->
+                            <div class="card-inner-clip">
+                                <div class="visual-img clinic-img-placeholder parallax-target" data-speed="0.05" role="img" aria-label="Sterilized clinical operatory setup complying with strict ISO healthcare procedures"></div>
+                            </div>
+                            <!-- Kept outside the inner-clip so it floats without clipping -->
+                            <div class="visual-badge glass-panel interactive-hover-card">
+                                <span class="badge-icon-large">🏥</span>
+                                <div>
+                                    <h4>ISO Standards</h4>
+                                    <p>Sterilization Protocol</p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="section-divider-wave" aria-hidden="true"></div>
-    </section>
+            <div class="section-divider-wave" aria-hidden="true"></div>
+        </section>
 
         <!-- Doctor Introduction Section with Cinematic Depth Layout -->
         <section id="doctor" class="doctor-intro-section snap-section">
             <div class="container doctor-grid">
                 <div class="doctor-visual-panel reveal transition-left">
                     <div class="portrait-container-interactive">
-                        <div class="doctor-bg-glow"></div>
+                        <div class="doctor-bg-glow" aria-hidden="true"></div>
                         <div class="doctor-photo-frame">
-                            <div class="doctor-working-img parallax-target" data-speed="0.03" role="img"
-                                aria-label="Dr. Md. Moniruzzaman Monir performing a precise micro-surgical restorative dental procedure">
-                            </div>
+                            <div class="doctor-working-img parallax-target" data-speed="0.03" role="img" aria-label="Dr. Md. Moniruzzaman Monir performing a precise micro-surgical restorative dental procedure"></div>
                         </div>
-                        <div class="doctor-floating-credentials glass-panel-heavy interactive-hover-card">
+                        <div class="doctor-floating-credentials glass-panel-dark interactive-hover-card">
                             <h5>DR. MD. MONIRUZZAMAN MONIR</h5>
                             <p>BDS (DU), MPH, PGT (SSMCH)</p>
                             <span class="credential-tag">Chief Consultant Surgeon (BMDC: 4038)</span>
@@ -305,15 +283,10 @@
                 <div class="doctor-bio-panel reveal transition-right">
                     <span class="section-tag">THE LEAD SURGEON</span>
                     <h2 class="section-title text-left">Where Dedication Meets Perfection</h2>
-                    
-                    <p class="doctor-p-lead">With over fifteen years of clinical practice, Dr. Md. Moniruzzaman Monir
-                        has pioneered Comprehensive dental care ranging from routine preventive treatments to advanced restorative and surgical procedures.</p>
-                    
-                    <p class="doctor-p-sub">As a <strong>Senior Lecturer</strong> at Sylhet Central Dental College and an esteemed
-                        alumnus of Sapporo Dental College (batch SDC-2), Dr. Moniruzzaman focuses on the oral-systemic connection and is an expert in European-grade dental technology, 
-                        serving the Sylheti community since 2007. His philosophy dictates that every
-                        tooth structure saved is a biological victory, utilizing dental implants only when natural
-                        structures have failed.</p>
+
+                    <p class="doctor-p-lead">With over fifteen years of clinical practice, Dr. Md. Moniruzzaman Monir has pioneered Comprehensive dental care ranging from routine preventive treatments to advanced restorative and surgical procedures.</p>
+
+                    <p class="doctor-p-sub">As a <strong>Senior Lecturer</strong> at Sylhet Central Dental College and an esteemed alumnus of Sapporo Dental College (batch SDC-2), Dr. Moniruzzaman focuses on the oral-systemic connection and is an expert in European-grade dental technology, serving the Sylheti community since 2007. His philosophy dictates that every tooth structure saved is a biological victory, utilizing dental implants only when natural structures have failed.</p>
 
                     <div class="surgeon-signature-block">
                         <div class="signature-line">
@@ -321,15 +294,13 @@
                             <span class="sig-name">Dr. Md. Moniruzzaman Monir</span>
                         </div>
                         <div class="surgeon-medals">
-                            <div class="medal-item" title="Certified Aesthetic Restorations">🪪 BMDC Registered
-                            </div>
-                            <div class="medal-item" title="Accredited Implant Practitioner">⚕️ 16+ Years of Experience 
-                            </div>
+                            <div class="medal-item" title="Certified Aesthetic Restorations">🪪 BMDC Registered</div>
+                            <div class="medal-item" title="Accredited Implant Practitioner">⚕️ 16+ Years of Experience</div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div style="text-align: center; margin-top: 40px;">
+            <div class="doctor-section-action">
                 <a href="about.html#about" class="btn btn-teal">Visit Full Profile &rarr;</a>
             </div>
             <div class="section-divider-wave" aria-hidden="true"></div>
@@ -343,34 +314,28 @@
                         <div class="section-header-centered reveal transition-up">
                             <span class="section-tag">VISUAL GALLERY RESULTS</span>
                             <h2 class="section-title">Artistry Proven In Detail</h2>
-                            <p class="section-lead-p">Observe the natural structural balance returned through our
-                                aesthetic biological restoration workflows. Scroll through the comparison panel.</p>
+                            <p class="section-lead-p">Observe the natural structural balance returned through our aesthetic biological restoration workflows. Scroll through the comparison panel.</p>
                         </div>
 
                         <!-- Interactive Dual Slider Interface -->
                         <div class="slider-comparison-outer reveal scale-in">
-                            <div class="slider-comparison-wrapper glass-panel-heavy" id="comparisonSlider"
-                                aria-label="Before and after smile comparison">
+                            <div class="slider-comparison-wrapper glass-panel-heavy" id="comparisonSlider" aria-label="Before and after smile comparison">
                                 <div class="comparison-slider">
-                                    <div class="img-wrapper before-img" id="beforeImgWrapper" role="img"
-                                        aria-label="Initial dental condition highlighting structure before aesthetic restoration">
+                                    <div class="img-wrapper before-img" id="beforeImgWrapper" role="img" aria-label="Initial dental condition highlighting structure before aesthetic restoration">
                                         <span class="status-indicator-badge tag-before">Initial Condition</span>
                                     </div>
-                                    <div class="img-wrapper after-img" id="afterImgWrapper" role="img"
-                                        aria-label="Final aesthetic smile outcome following custom veneer alignment and treatment">
+                                    <div class="img-wrapper after-img" id="afterImgWrapper" role="img" aria-label="Final aesthetic smile outcome following custom veneer alignment and treatment">
                                         <span class="status-indicator-badge tag-after">After Care Outcome</span>
                                     </div>
                                     <!-- Divider Control element -->
                                     <div class="slider-handle" id="sliderHandle">
                                         <div class="handle-glow-line"></div>
                                         <div class="surgical-grip">
-                                            <span class="laser-aperture"></span>
-                                            <span class="arrow-indicator" aria-hidden="true"
-                                                style="color: var(--accent-teal); font-size: 11px;">◀ ▶</span>
+                                            <span class="laser-aperture" aria-hidden="true"></span>
+                                            <span class="arrow-indicator" aria-hidden="true">◀ ▶</span>
                                         </div>
                                     </div>
-                                    <input class="slider-accessible-range" id="comparisonRange" type="range" min="0"
-                                        max="100" value="50" aria-label="Reveal more of the after-treatment result">
+                                    <input class="slider-accessible-range" id="comparisonRange" type="range" min="0" max="100" value="50" aria-label="Reveal more of the after-treatment result">
                                 </div>
                             </div>
                         </div>
@@ -386,25 +351,20 @@
                 <div class="section-header-centered reveal transition-up">
                     <span class="section-tag">DIAGNOSTIC INFRASTRUCTURE</span>
                     <h2 class="section-title">Driven by High Precision Devices</h2>
-                    <p class="section-lead-p">Our technological ecosystems exclude physical molds and standard
-                        procedures, optimizing accuracy through computer-aided operations with most advanced treatment devices in Sylhet.</p>
+                    <p class="section-lead-p">Our technological ecosystems exclude physical molds and standard procedures, optimizing accuracy through computer-aided operations with most advanced treatment devices in Sylhet.</p>
                 </div>
 
                 <div class="tech-mosaics">
                     <div class="tech-card glass-panel reveal transition-up interactive-hover-card">
-                        <div class="tech-img-placeholder xray-machine-img" role="img"
-                            aria-label="High precision intraoral 3D scanner mapping oral cavity structure"></div>
+                        <div class="tech-img-placeholder xray-machine-img" role="img" aria-label="High precision intraoral 3D scanner mapping oral cavity structure"></div>
                         <div class="tech-card-content">
                             <h4>RVG X-Ray</h4>
-                            <p>Equipped with advanced dental tools and RVG digital X-ray technology for clear, 
-                                precise, and efficient diagnostics.</p>
+                            <p>Equipped with advanced dental tools and RVG digital X-ray technology for clear, precise, and efficient diagnostics.</p>
                         </div>
                     </div>
 
                     <div class="tech-card glass-panel reveal transition-up interactive-hover-card">
-                        <div class="tech-img-placeholder dental-scaler-img" role="img"
-                            aria-label="Zeiss dental microscope setup for high-magnification root canal procedures">
-                        </div>
+                        <div class="tech-img-placeholder dental-scaler-img" role="img" aria-label="Ultrasonic dental scaler configured for calculus removal and periodontal maintenance"></div>
                         <div class="tech-card-content">
                             <h4>Ultrasonic Dental Scaler</h4>
                             <p>Our Ultrasonic Dental Scaler delivers powerful, precise calculus removal with controlled vibration for efficient, thorough periodontal cleaning.</p>
@@ -412,8 +372,7 @@
                     </div>
 
                     <div class="tech-card glass-panel reveal transition-up interactive-hover-card">
-                        <div class="tech-img-placeholder curing-light-img" role="img"
-                            aria-label="Biolase dental laser console configured for soft tissue procedures"></div>
+                        <div class="tech-img-placeholder curing-light-img" role="img" aria-label="Cordless high intensity LED curing system used for rapid composite restoration polymerization"></div>
                         <div class="tech-card-content">
                             <h4>Cordless LED Dental Curing Light</h4>
                             <p>Our LED Curing Light delivers high-intensity, consistent polymerization for fast and precise restorative procedures.</p>
@@ -430,38 +389,33 @@
                 <div class="section-header-centered reveal transition-up">
                     <span class="section-tag">THE TREATMENT PATH</span>
                     <h2 class="section-title">Seamless Patient Coordination From Home and Abroad</h2>
-                    <p class="section-lead-p">How we prioritize physical care comfort and clinical clarity from
-                        appointment setup to long-term health review with our rapid fast-forwading service.</p>
+                    <p class="section-lead-p">How we prioritize physical care comfort and clinical clarity from appointment setup to long-term health review with our rapid fast-forwarding service.</p>
                 </div>
 
                 <div class="timeline-container">
                     <div class="timeline-line"></div>
 
-                    <div class="timeline-step glass-panel reveal transition-up interactive-hover-card">
+                    <div class="timeline-step glass-panel reveal transition-up">
                         <div class="step-num">01</div>
                         <div class="step-content">
                             <h4>Secure Appointment Your Way</h4>
-                            <p>Book online, call ahead, or collect a ticket at the clinic. Overseas and foreign guests can 
-                                arrange appointments through our website or other available channels.</p>
+                            <p>Book online, call ahead, or collect a ticket at the clinic. Overseas and foreign guests can arrange appointments through our website or other available channels.</p>
                         </div>
                     </div>
 
-                    <div class="timeline-step glass-panel reveal transition-up interactive-hover-card">
+                    <div class="timeline-step glass-panel reveal transition-up">
                         <div class="step-num">02</div>
                         <div class="step-content">
                             <h4>Get Priority-based, Personalized Care</h4>
-                            <p>Visit the clinic for in-person treatment, or receive a video consultation when
-                                visiting physically isn't possible. Treatment is scheduled according to priority, with most 
-                                treatments completed within a maximum of 5 days.</p>
+                            <p>Visit the clinic for in-person treatment, or receive a video consultation when visiting physically isn't possible. Treatment is scheduled according to priority, with most treatments completed within a maximum of 5 days.</p>
                         </div>
                     </div>
 
-                    <div class="timeline-step glass-panel reveal transition-up interactive-hover-card">
+                    <div class="timeline-step glass-panel reveal transition-up">
                         <div class="step-num">03</div>
                         <div class="step-content">
                             <h4>Complete Your Treatment With Confidence</h4>
-                            <p>Receive focused, patient-to-patient care from consultation through completion, 
-                                with treatment tailored to your needs and schedule.</p>
+                            <p>Receive focused, patient-to-patient care from consultation through completion, with treatment tailored to your needs and schedule.</p>
                         </div>
                     </div>
                 </div>
@@ -475,53 +429,38 @@
                 <div class="section-header-centered reveal transition-up">
                     <span class="section-tag">OUR SPATIAL ENVIRONMENT</span>
                     <h2 class="section-title">High-Comfort Clinical Sanctuary</h2>
-                    <p class="section-lead-p">Step inside a soothing space engineered to reduce anxiety, combining
-                        premium acoustics with state-of-the-art operatory seating.</p>
+                    <p class="section-lead-p">Step inside a soothing space engineered to reduce anxiety, combining premium acoustics with state-of-the-art operatory seating.</p>
                 </div>
 
                 <div class="gallery-mosaic-grid">
                     <div class="gallery-item item-large glass-panel reveal transition-left">
-                        <div class="gallery-img waiting-area-img" role="img"
-                            aria-label="Premium clinical waiting lounge featuring comfortable modern aesthetics"></div>
+                        <div class="gallery-img waiting-area-img" role="img" aria-label="Premium clinical waiting lounge featuring comfortable modern aesthetics"></div>
                         <div class="gallery-info">
                             <h4>Aesthetic Waiting Lounge</h4>
                         </div>
                     </div>
-                    
-                 <div class="gallery-item item-medium glass-panel reveal transition-right">
-                        <!-- Muted video element with responsive fallback -->
-                        <video 
-                            class="gallery-video" 
-                            autoplay 
-                            loop 
-                            muted 
-                            playsinline 
-                            webkit-playsinline
-                            preload="auto"
-                            poster="images/loading.gif"
-                            aria-label="Video of a state-of-the-art operatory room equipped with active surgical lighting and microscopic dentistry systems">
+
+                    <div class="gallery-item item-medium glass-panel reveal transition-right">
+                        <!-- Muted video element with responsive fallback and hardware performance flags -->
+                        <video class="gallery-video" autoplay loop muted playsinline preload="auto" poster="images/loading.gif" aria-label="Video of a state-of-the-art operatory room equipped with active surgical lighting and microscopic dentistry systems">
                             <source src="videos/operatory.mp4" type="video/mp4">
-                            <!-- Fallback image if video fails to load entirely or HTML5 is unsupported -->
+                            <!-- Fallback image if HTML5 video load is blocked or unsupported -->
                             <img src="images/clinic.jpg" alt="State-of-the-art operatory room with surgical lighting">
                         </video>
                         <div class="gallery-info">
                             <h4>High-Tech Operatory</h4>
                         </div>
                     </div>
-                    
+
                     <div class="gallery-item item-small glass-panel reveal scale-in">
-                        <div class="gallery-img equipment-img" role="img"
-                            aria-label="Advanced digital CAD CAM lab station rendering computer models of custom crowns">
-                        </div>
+                        <div class="gallery-img equipment-img" role="img" aria-label="Advanced digital CAD CAM lab station rendering computer models of custom crowns"></div>
                         <div class="gallery-info">
                             <h4>Digital Lab Station</h4>
                         </div>
                     </div>
-                    
+
                     <div class="gallery-item item-small glass-panel reveal scale-in">
-                        <div class="gallery-img chair-img" role="img"
-                            aria-label="Ergonomically engineered premium dental seating prioritized for anatomical patient support">
-                        </div>
+                        <div class="gallery-img chair-img" role="img" aria-label="Ergonomically engineered premium dental seating prioritized for anatomical patient support"></div>
                         <div class="gallery-info">
                             <h4>Ergonomic Dental Chairs</h4>
                         </div>
@@ -537,21 +476,15 @@
                 <div class="section-header-centered reveal transition-up">
                     <span class="section-tag">TESTIMONIAL STORIES</span>
                     <h2 class="section-title">Trusted by patients nationwide.</h2>
-                    <p class="section-lead-p">Real case histories of patients returning to absolute comfort and visual
-                        smile confidence under our primary clinical care.</p>
+                    <p class="section-lead-p">Real case histories of patients returning to absolute comfort and visual smile confidence under our primary clinical care.</p>
                 </div>
 
                 <div class="testimonials-grid">
                     <div class="testimonial-card glass-panel reveal transition-up interactive-hover-card">
                         <div class="quote-symbol" aria-hidden="true">“</div>
-                        <p class="testimonial-text">I had been putting off getting my uneven gumline treated for over a year because
-                            the thought of scalpels and sutures made me anxious. 
-                            Dr. Moniruzzaman suggested using the soft-tissue diode laser instead. The procedure was incredibly
-                            gentle with barely any sensation. There was zero bleeding, no stitches required, and I was back at my 
-                            desk the following morning without having to take pain medication.</p>
+                        <p class="testimonial-text">I had been putting off getting my uneven gumline treated for over a year because the thought of scalpels and sutures made me anxious. Dr. Moniruzzaman suggested using the soft-tissue diode laser instead. The procedure was incredibly gentle with barely any sensation. There was zero bleeding, no stitches required, and I was back at my desk the following morning without having to take pain medication.</p>
                         <div class="testimonial-author">
-                            <div class="author-avatar avatar-1" role="img"
-                                aria-label="Avatar representation of patient Shamsul Alam"></div>
+                            <div class="author-avatar avatar-1" role="img" aria-label="Avatar representation of patient Nusrat A."></div>
                             <div>
                                 <h5>Nusrat A.</h5>
                                 <p>Advanced Soft-Tissue Laser Therapy Recipient</p>
@@ -561,13 +494,9 @@
 
                     <div class="testimonial-card glass-panel reveal transition-up interactive-hover-card">
                         <div class="quote-symbol" aria-hidden="true">“</div>
-                        <p class="testimonial-text">I came into the Chowhatta chamber with a sharp, throbbing molar pain that kept me up all night.
-                            Dr. Monir explained the root canal process clearly using digital diagnostic scans and performed ultrasound
-                            irrigation to thoroughly disinfect the canal. I felt immediate relief right after 
-                            the session and had no issues eating or chewing afterwards.</p>
+                        <p class="testimonial-text">I came into the Chowhatta chamber with a sharp, throbbing molar pain that kept me up all night. Dr. Monir explained the root canal process clearly using digital diagnostic scans and performed ultrasound irrigation to thoroughly disinfect the canal. I felt immediate relief right after the session and had no issues eating or chewing afterwards.</p>
                         <div class="testimonial-author">
-                            <div class="author-avatar avatar-2" role="img"
-                                aria-label="Avatar representation of patient Tariq Mahmud"></div>
+                            <div class="author-avatar avatar-2" role="img" aria-label="Avatar representation of patient Tanvir H."></div>
                             <div>
                                 <h5>Tanvir H.</h5>
                                 <p>Precision Root Canal Therapy (RCT) Patient</p>
@@ -577,12 +506,9 @@
 
                     <div class="testimonial-card glass-panel reveal transition-up interactive-hover-card">
                         <div class="quote-symbol" aria-hidden="true">“</div>
-                        <p class="testimonial-text">After losing a molar a few years ago, chewing on one side became uncomfortable. Dr. Moniruzzaman recommended 
-                            a titanium implant fixture topped with a custom crown. The entire process felt well-planned and precise, 
-                            and the chamber’s calm atmosphere helped put me at ease. The new tooth looks and feels just like my natural teeth.</p>
+                        <p class="testimonial-text">After losing a molar a few years ago, chewing on one side became uncomfortable. Dr. Moniruzzaman recommended a titanium implant fixture topped with a custom crown. The entire process felt well-planned and precise, and the chamber’s calm atmosphere helped put me at ease. The new tooth looks and feels just like my natural teeth.</p>
                         <div class="testimonial-author">
-                            <div class="author-avatar avatar-3" role="img"
-                                aria-label="Avatar representation of patient Nusrat Jahan"></div>
+                            <div class="author-avatar avatar-3" role="img" aria-label="Avatar representation of patient Rafiqul I."></div>
                             <div>
                                 <h5>Rafiqul I.</h5>
                                 <p>Dental Implant Restorations Recipient</p>
@@ -600,8 +526,7 @@
                 <div class="faq-intro reveal transition-left">
                     <span class="section-tag">PATIENT INFORMATION</span>
                     <h2 class="section-title text-left">Clinical Clarity & Medical Guidelines</h2>
-                    <p class="faq-intro-p">Find detailed answers concerning treatment duration, biological safety,
-                        customized dental scheduling and international client provisions.</p>
+                    <p class="faq-intro-p">Find detailed answers concerning treatment duration, biological safety, customized dental scheduling and international client provisions.</p>
                     <a href="#book" class="btn btn-teal">ASK A DIFFERENT QUESTION</a>
                 </div>
 
@@ -612,9 +537,7 @@
                             <span class="faq-icon" aria-hidden="true">+</span>
                         </button>
                         <div class="faq-content">
-                            <p>Our clinic is located on the 2nd floor at Chowhatta Point, Sylhet. To ensure your treatment 
-                                is never interrupted by loadshedding or power outages, our chamber is equipped with an instant 
-                                standby generator system that keeps all surgical equipment and air-conditioning running continuously.</p>
+                            <p>Our clinic is located on the 2nd floor at Chowhatta Point, Sylhet. To ensure your treatment is never interrupted by loadshedding or power outages, our chamber is equipped with an instant standby generator system that keeps all surgical equipment and air-conditioning running continuously.</p>
                         </div>
                     </div>
 
@@ -624,10 +547,7 @@
                             <span class="faq-icon" aria-hidden="true">+</span>
                         </button>
                         <div class="faq-content">
-                            <p>You don't need to bring special preparations. For convenience and hygiene, we maintain a dedicated shoe 
-                                area at the entrance, a comfortable waiting lounge, and a private washroom with a mirror setup. If you 
-                                have past dental records or radiographs, feel free to bring them—though we also maintain secure long-term
-                                digital records for all our patients.</p>
+                            <p>You don't need to bring special preparations. For convenience and hygiene, we maintain a dedicated shoe area at the entrance, a comfortable waiting lounge, and a private washroom with a mirror setup. If you have past dental records or radiographs, feel free to bring them—though we also maintain secure long-term digital records for all our patients.</p>
                         </div>
                     </div>
 
@@ -637,9 +557,7 @@
                             <span class="faq-icon" aria-hidden="true">+</span>
                         </button>
                         <div class="faq-content">
-                            <p>Absolutely. We coordinate diagnostic scans and digital evaluations for international
-                                patients via video consultations prior to arrival in Sylhet, ensuring expedited clinical
-                                treatment timelines.</p>
+                            <p>Absolutely. We coordinate diagnostic scans and digital evaluations for international patients via video consultations prior to arrival in Sylhet, ensuring expedited clinical treatment timelines.</p>
                         </div>
                     </div>
 
@@ -649,10 +567,7 @@
                             <span class="faq-icon" aria-hidden="true">+</span>
                         </button>
                         <div class="faq-content">
-                            <p>Dental implants are generally the gold standard because they place a medical-grade
-                                titanium fixture directly into the jawbone, preserving neighboring healthy teeth
-                                without needing to file them down. During your consultation, we evaluate your bone
-                                structure to determine if an implant or a bridge is the best fit for you.</p>
+                            <p>Dental implants are generally the gold standard because they place a medical-grade titanium fixture directly into the jawbone, preserving neighboring healthy teeth without needing to file them down. During your consultation, we evaluate your bone structure to determine if an implant or a bridge is the best fit for you.</p>
                         </div>
                     </div>
                 </div>
@@ -667,8 +582,7 @@
                     <div class="emergency-content">
                         <span class="emergency-tag">🚨 24/7 PATIENT SUPPORT</span>
                         <h2>Dental Emergency or Acute Pain?</h2>
-                        <p>We are ready to assist you during urgent times. Call our dedicated helpdesk directly to
-                            secure emergency appointments.</p>
+                        <p>We are ready to assist you during urgent times. Call our dedicated helpdesk directly to secure emergency appointments.</p>
                     </div>
                     <div class="emergency-actions">
                         <a href="tel:+8801675190777" class="btn btn-outline">CALL: +880 1675-190777</a>
@@ -686,26 +600,16 @@
                     <div class="cta-inner-grid">
                         <div class="cta-text-block">
                             <span class="section-tag">SECURE YOUR VISIT</span>
-                            <h2 class="huge-title text-left"
-                                style="color: var(--text-white); font-family: var(--font-serif); font-size: clamp(28px, 3.5vw, 44px); margin-bottom: 20px;">
-                                Initiate Your Precision Restorative Journey</h2>
-                            <p class="cta-desc">Choose absolute aesthetic execution and trusted clinical expertise.
-                                Request an appointment below via our quick online form, or send a pre-filled direct
-                                email request.</p>
+                            <h2 class="huge-title text-left cta-huge-title">Initiate Your Precision Restorative Journey</h2>
+                            <p class="cta-desc">Choose absolute aesthetic execution and trusted clinical expertise. Request an appointment below via our quick online form, or send a pre-filled direct email request.</p>
                             <div class="clinical-guarantee">
-                                🛡️ Fully sanitized private operatory environment reserved uniquely for you on the 2nd
-                                Floor.
+                                🛡️ Fully sanitized private operatory environment reserved uniquely for you on the 2nd Floor.
                             </div>
                         </div>
                         <div class="cta-action-block">
                             <div class="appointment-cta-container glass-panel-dark">
-                                <a href="https://docs.google.com/forms/d/e/1FAIpQLSe62pft0HweBtmXHCKeXmr2n4z5R2fPcg6hwLlL5QaG0JGaPA/viewform?usp=header"
-                                    target="_self" class="btn btn-teal w-100"
-                                    style="margin-bottom: 16px; font-size: 13px;">REQUEST AN APPOINTMENT</a>
-                                <a href="mailto:dr_monir93@yahoo.com?subject=Appointment%20Request&body=Dear%20Dr.%20Moniruzzaman%2C%0D%0A%0D%0AI%20would%20like%20to%20book%20an%20appointment%20for%20a%20dental%20consultation.%0D%0A%0D%0AMy%20details%20are%20as%20follows%3A%0D%0A%0D%0A%E2%80%A2%20Full%20Name%3A%0D%0A%E2%80%A2%20Mobile%20Number%3A%0D%0A%E2%80%A2%20Service%2F%20Problem%3A%0D%0A%E2%80%A2%20Preferred%20Date%3A%0D%0A%E2%80%A2%20Preferred%20Time%3A%0D%0A%0D%0AIf%20my%20preferred%20time%20is%20unavailable%2C%20please%20let%20me%20know%20the%20nearest%20available%20slot.%0D%0A%0D%0AThank%20you.%20I%20look%20forward%20to%20your%20confirmation.%0D%0A%0D%0AKind%20regards%2C%0D%0A%0D%0A%5BYour%20Name%5D"
-                                    class="btn btn-outline w-100"
-                                    title="The mail is pre-typed, make sure to put your personal data in there"
-                                    style="font-size: 13px;">
+                                <a href="https://docs.google.com/forms/d/e/1FAIpQLSe62pft0HweBtmXHCKeXmr2n4z5R2fPcg6hwLlL5QaG0JGaPA/viewform?usp=header" target="_self" class="btn btn-teal w-100 btn-form-link">REQUEST AN APPOINTMENT</a>
+                                <a href="mailto:dr_monir93@yahoo.com?subject=Appointment%20Request&body=Dear%20Dr.%20Moniruzzaman%2C%0D%0A%0D%0AI%20would%20like%20to%20book%20an%20appointment%20for%20a%20dental%20consultation.%0D%0A%0D%0AMy%20details%20are%20as%20follows%3A%0D%0A%0D%0A%E2%80%A2%20Full%20Name%3A%0D%0A%E2%80%A2%20Mobile%20Number%3A%0D%0A%E2%80%A2%20Service%2F%20Problem%3A%0D%0A%E2%80%A2%20Preferred%20Date%3A%0D%0A%E2%80%A2%20Preferred%20Time%3A%0D%0A%0D%0AIf%20my%20preferred%20time%20is%20unavailable%2C%20please%20let%20me%20know%20the%20nearest%20available%20slot.%0D%0A%0D%0AThank%20you.%20I%20look%20forward%20to%20your%20confirmation.%0D%0A%0D%0AKind%20regards%2C%0D%0A%0D%0A%5BYour%20Name%5D" class="btn btn-outline w-100" title="The mail is pre-typed, make sure to put your personal data in there">
                                     Request by mail
                                 </a>
                             </div>
@@ -722,8 +626,7 @@
                 <div class="section-header-centered reveal transition-up">
                     <span class="section-tag">OUR CLINICAL LOCATION</span>
                     <h2 class="section-title">Premium Flagship Chamber</h2>
-                    <p class="section-lead-p">Easily accessible within Chowhatta Point, Sylhet. Enjoy a fully
-                        air-conditioned clinic with continuous power support.</p>
+                    <p class="section-lead-p">Easily accessible within Chowhatta Point, Sylhet. Enjoy a fully air-conditioned clinic with continuous power support.</p>
                 </div>
 
                 <div class="location-split-grid reveal transition-up">
@@ -747,18 +650,13 @@
                         </div>
 
                         <div class="parking-alert">
-                            ℹ️ Enjoy a fully air-conditioned environment, emergency generator backup for zero
-                            loadshedding interruption, a dedicated hygiene shoe rack, private washroom facilities, and
-                            an external guest sink with mirrors.
+                            ℹ️ Enjoy a fully air-conditioned environment, emergency generator backup for zero loadshedding interruption, a dedicated hygiene shoe rack, private washroom facilities, and an external guest sink with mirrors.
                         </div>
                     </div>
 
                     <div class="map-container-outer">
                         <div class="circular-map-frame glass-panel-heavy">
-                            <iframe src="https://maps.google.com/maps?q=24.899418,91.8691531&z=17&output=embed" width="100%"
-                                height="100%" style="border:0; min-height: 350px;" allowfullscreen="" loading="lazy"
-                                referrerpolicy="no-referrer-when-downgrade"
-                                aria-label="Map location of Dental Care Plus in Chowhatta Point, Sylhet"></iframe>
+                            <iframe src="https://maps.google.com/maps?q=24.899418,91.8691531&z=17&output=embed" width="100%" height="100%" style="border:0; min-height: 350px;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" sandbox="allow-scripts allow-same-origin allow-popups allow-forms" aria-label="Map location of Dental Care Plus in Chowhatta Point, Sylhet"></iframe>
                         </div>
                     </div>
                 </div>
@@ -773,22 +671,17 @@
                 <div class="footer-col reveal transition-left">
                     <h4 class="footer-col-title">DENTAL CARE PLUS</h4>
                     <p class="footer-about-text">
-                        Setting clinical benchmarks across Sylhet, Bangladesh. Our 2nd-floor operatory at Chowhatta
-                        Point combines advanced digital diagnostics with comfortable therapeutic amenities to restore
-                        dental function.
+                        Setting clinical benchmarks across Sylhet, Bangladesh. Our 2nd-floor operatory at Chowhatta Point combines advanced digital diagnostics with comfortable therapeutic amenities to restore dental function.
                     </p>
                     <div class="footer-social-icons">
                         <a href="https://www.facebook.com/Dentalcareplussyl" target="_blank" rel="noopener noreferrer">
-                            <img src="images/facebook-logo.png"
-                                alt="visit facebook page" class="social-icon-png">
+                            <img src="images/facebook-logo.png" alt="visit facebook page" class="social-icon-png">
                         </a>
                         <a href="https://wa.me/8801675190777" target="_blank" rel="noopener noreferrer">
-                            <img src="images/whatsapp-logo.png"
-                                alt="contact via Whatsapp" class="social-icon-png">
+                            <img src="images/whatsapp-logo.png" alt="contact via Whatsapp" class="social-icon-png">
                         </a>
                         <a href="mailto:dr_monir93@yahoo.com" target="_blank" rel="noopener noreferrer">
-                            <img src="images/gmail-logo.png" alt="Mail Us"
-                                class="social-icon-png">
+                            <img src="images/gmail-logo.png" alt="Mail Us" class="social-icon-png">
                         </a>
                     </div>
                 </div>
@@ -797,9 +690,9 @@
                     <h4 class="footer-col-title">NAVIGATION HUB</h4>
                     <ul class="footer-links">
                         <li><a href="#home">Home Base</a></li>
-                        <li><a href="about.html#services">Clinical Care Matrix</a></li>
+                        <li><a href="#services">Clinical Care Matrix</a></li>
                         <li><a href="#why-choose">Chamber Atmosphere</a></li>
-                        <li><a href="about.html#about">Surgeon Credentials</a></li>
+                        <li><a href="#doctor">Surgeon Credentials</a></li>
                         <li><a href="#smile-transformation">Smile Case Studies</a></li>
                         <li><a href="#gallery">Spatial Operations Tour</a></li>
                     </ul>
@@ -828,20 +721,17 @@
                 </div>
             </div>
 
-            
             <div class="footer-bottom">
                 <div class="footer-bottom-container">
-                    <p class="copyright-text">&copy; 2026 DENTAL CARE PLUS &bull; ALL RIGHTS RESERVED &bull; DR. MD. MONIRUZZAMAN MONIR
-                    </p>
-            
+                    <p class="copyright-text">&copy; 2026 DENTAL CARE PLUS &bull; ALL RIGHTS RESERVED &bull; DR. MD. MONIRUZZAMAN MONIR</p>
+
                     <div class="developer-credit">
                         <span class="dev-by-text">developed by</span>
                         <a href="https://www.envisionanalytics.co.uk/" target="_blank" rel="noopener noreferrer" class="developer-link">
                             <img src="images/credit.webp" alt="Envision Analytics UK" class="developer-logo-img">
-                            <span class="hover-arrow">↗</span>
+                            <span class="hover-arrow" aria-hidden="true">↗</span>
                         </a>
                     </div>
-            
                 </div>
             </div>
         </div>
