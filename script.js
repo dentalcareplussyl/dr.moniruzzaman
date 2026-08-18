@@ -7,6 +7,12 @@ document.querySelectorAll('.odometer').forEach(odometer => {
 
 document.addEventListener('DOMContentLoaded', () => {
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let pageActiveState = true;
+
+    // Monitor Document Visibility State to optimize resources
+    document.addEventListener('visibilitychange', () => {
+        pageActiveState = !document.hidden;
+    });
 
     // ==========================================================================
     // 0. Smooth Scroll Engine (Lenis) Integration
@@ -30,12 +36,16 @@ document.addEventListener('DOMContentLoaded', () => {
             if (typeof window.gsap !== "undefined" && typeof window.ScrollTrigger !== "undefined") {
                 lenis.on('scroll', window.ScrollTrigger.update);
                 window.gsap.ticker.add((time) => {
-                    lenis.raf(time * 1000);
+                    if (pageActiveState) {
+                        lenis.raf(time * 1000);
+                    }
                 });
                 window.gsap.ticker.lagSmoothing(0);
             } else {
                 const raf = (time) => {
-                    lenis.raf(time);
+                    if (pageActiveState) {
+                        lenis.raf(time);
+                    }
                     requestAnimationFrame(raf);
                 };
                 requestAnimationFrame(raf);
@@ -49,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
             heroVideo.pause();
         } else {
             const heroVideoObserver = new IntersectionObserver(([entry]) => {
-                if (entry.isIntersecting) {
+                if (entry.isIntersecting && pageActiveState) {
                     heroVideo.play().catch(() => { });
                 } else {
                     heroVideo.pause();
@@ -95,12 +105,41 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { passive: true });
 
     // ==========================================================================
-    // 2. Mobile Nav Toggle Handling
+    // 2. Mobile Nav Toggle & Focus Trap Accessibility Handling
     // ==========================================================================
     const menuToggle = document.querySelector('.mobile-menu-toggle');
     const siteHeader = document.querySelector('.site-header');
     const mainNav = document.getElementById('mainNav');
     const menuLinks = document.querySelectorAll('.nav-link, .phone-btn');
+    
+    // Focus Trap parameters
+    const getFocusableElements = () => {
+        if (!mainNav) return [];
+        return Array.from(mainNav.querySelectorAll('a, button, [tabindex="0"]'))
+            .filter(el => el.tabIndex > -1 && !el.disabled);
+    };
+
+    const handleFocusTrap = (e) => {
+        if (e.key !== 'Tab' || !siteHeader || !siteHeader.classList.contains('nav-open')) return;
+        
+        const focusables = getFocusableElements();
+        if (focusables.length === 0) return;
+        
+        const firstFocusable = focusables[0];
+        const lastFocusable = focusables[focusables.length - 1];
+
+        if (e.shiftKey) {
+            if (document.activeElement === firstFocusable || document.activeElement === menuToggle) {
+                lastFocusable.focus();
+                e.preventDefault();
+            }
+        } else {
+            if (document.activeElement === lastFocusable) {
+                firstFocusable.focus();
+                e.preventDefault();
+            }
+        }
+    };
 
     if (menuToggle && siteHeader) {
         menuToggle.addEventListener('click', () => {
@@ -109,49 +148,52 @@ document.addEventListener('DOMContentLoaded', () => {
             siteHeader.classList.toggle('nav-open');
             document.body.style.overflow = !isExpanded ? 'hidden' : '';
             updateHeaderClasses();
+            
+            if (!isExpanded) {
+                document.addEventListener('keydown', handleFocusTrap);
+                const focusables = getFocusableElements();
+                if (focusables.length > 0) focusables[0].focus();
+            } else {
+                document.removeEventListener('keydown', handleFocusTrap);
+                menuToggle.focus();
+            }
         });
     }
 
-    document.addEventListener('keydown', (event) => {
-        if (!siteHeader) return;
-        const isMenuOpen = siteHeader.classList.contains('nav-open');
-
-        if (event.key === 'Escape' && isMenuOpen) {
+    const closeMobileMenu = () => {
+        if (siteHeader && siteHeader.classList.contains('nav-open')) {
             if (menuToggle) {
                 menuToggle.setAttribute('aria-expanded', 'false');
                 menuToggle.focus();
             }
             siteHeader.classList.remove('nav-open');
             document.body.style.overflow = '';
+            document.removeEventListener('keydown', handleFocusTrap);
             updateHeaderClasses();
+        }
+    };
+
+    document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+            closeMobileMenu();
         }
     });
 
     menuLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            if (siteHeader && siteHeader.classList.contains('nav-open')) {
-                if (menuToggle) {
-                    menuToggle.setAttribute('aria-expanded', 'false');
-                }
-                siteHeader.classList.remove('nav-open');
-                document.body.style.overflow = '';
-                updateHeaderClasses();
-            }
-        });
+        link.addEventListener('click', closeMobileMenu);
     });
 
-// ==========================================================================
+    // ==========================================================================
     // 3. Cinematic Frame Parallax Engine (Defensive & Midpoint Balanced)
     // ==========================================================================
     const parallaxTargets = document.querySelectorAll(".parallax-target");
     let parallaxFrameId = null;
 
-    // Defensive absolute offset calculator (avoids infinite loops on complex shadow DOMs)
     const getDocumentOffsetTop = (element) => {
         if (!element || typeof element.getBoundingClientRect !== "function") return 0;
         let offsetTop = 0;
         let el = element;
-        let depthLimit = 100; // Hard limit to guarantee no infinite loops
+        let depthLimit = 100; 
         while (el && depthLimit > 0) {
             offsetTop += el.offsetTop || 0;
             el = el.offsetParent;
@@ -161,66 +203,52 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const handleParallax = () => {
-        // Avoid throwing errors if elements do not exist on the page
-        if (!parallaxTargets || parallaxTargets.length === 0) return;
+        if (!parallaxTargets || parallaxTargets.length === 0 || !pageActiveState) return;
 
-        // Honor accessibility preferences
         const reducedMotionSetting = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
         if (reducedMotionSetting || window.innerWidth < 1025) return;
 
-        // Cross-browser safe scroll and height lookups
         const scrollPos = window.scrollY || window.pageYOffset || document.documentElement.scrollTop || 0;
         const viewportHeight = window.innerHeight || document.documentElement.clientHeight || 800;
 
         parallaxTargets.forEach(target => {
             if (!target) return;
 
-            // Safe parsing of speed data attribute with limits to prevent extreme offsets
             let speed = parseFloat(target.getAttribute('data-speed'));
             if (isNaN(speed)) speed = 0.05;
-            speed = Math.max(-0.4, Math.min(0.4, speed)); // Cap translation to protect layout bounds
+            speed = Math.max(-0.4, Math.min(0.4, speed)); 
 
             const absoluteTop = getDocumentOffsetTop(target);
             const targetHeight = target.offsetHeight || target.getBoundingClientRect().height || 0;
             
-            // Calculate midpoint centers of both viewport and target frame
             const viewportCenter = scrollPos + (viewportHeight / 2);
             const targetCenter = absoluteTop + (targetHeight / 2);
             
             const offset = (viewportCenter - targetCenter) * speed;
 
-            // Apply fixed decimals to prevent sub-pixel layout jittering
             target.style.transform = `translate3d(0, ${offset.toFixed(2)}px, 0)`;
         });
         parallaxFrameId = null;
     };
 
-    // Performance-safe throttled scroll tracking
     window.addEventListener("scroll", () => {
-        if (!parallaxFrameId) {
+        if (!parallaxFrameId && pageActiveState) {
             parallaxFrameId = requestAnimationFrame(handleParallax);
         }
     }, { passive: true });
 
-    // Refresh triggers to secure correct offsets on complete page asset load
-    window.addEventListener("load", () => {
-        if (typeof requestAnimationFrame !== "undefined") {
-            requestAnimationFrame(handleParallax);
-        } else {
-            handleParallax();
-        }
-    });
-
     window.addEventListener("resize", () => {
-        if (window.innerWidth < 1025) {
+        // Safe lock release on viewport scaling
+        if (window.innerWidth >= 1025) {
+            closeMobileMenu();
+            if (!parallaxFrameId) {
+                parallaxFrameId = requestAnimationFrame(handleParallax);
+            }
+        } else {
             if (parallaxTargets && parallaxTargets.length > 0) {
                 parallaxTargets.forEach(target => {
                     if (target) target.style.transform = '';
                 });
-            }
-        } else {
-            if (!parallaxFrameId) {
-                parallaxFrameId = requestAnimationFrame(handleParallax);
             }
         }
     }, { passive: true });
@@ -236,6 +264,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const startTime = performance.now();
 
         const updateCount = (currentTime) => {
+            if (!pageActiveState) {
+                element.dataset.rafId = requestAnimationFrame(updateCount);
+                return;
+            }
             const elapsed = currentTime - startTime;
             const progress = Math.min(elapsed / duration, 1);
             const easeProgress = 1 - Math.pow(1 - progress, 4);
@@ -259,7 +291,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const initializeRevealObserver = () => {
         if (typeof IntersectionObserver === "undefined") {
-            // Legacy fallbacks
             revealElements.forEach(element => {
                 element.classList.add('active');
                 const odometers = element.querySelectorAll('.odometer');
@@ -293,7 +324,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         if (odometer.dataset.rafId) {
                             cancelAnimationFrame(parseInt(odometer.dataset.rafId, 10));
                         }
-                        odometer.textContent = "0"; // Force recount when scrolled back into viewport
+                        odometer.textContent = "0"; 
                     });
                 }
             });
@@ -306,14 +337,13 @@ document.addEventListener('DOMContentLoaded', () => {
             revealObserver.observe(element);
         });
 
-        // Expose globally to handle dynamic content loads
         window.revealObserver = revealObserver;
     };
 
     initializeRevealObserver();
 
     // ==========================================================================
-    // 6. Modern GSAP Pin Scroll & Dynamic Mobile Drag Before/After Comparison
+    // 6. Modern GSAP Pin Scroll & Unified Before/After Comparison Engine
     // ==========================================================================
     const initBeforeAfterComparison = () => {
         const section = document.getElementById('smile-transformation');
@@ -323,6 +353,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const comparisonRange = document.getElementById('comparisonRange');
 
         if (!section || !comparisonSlider || !afterImgWrapper || !sliderHandle) return;
+
+        let manualOverrideActive = false;
 
         const updatePosition = (percentage) => {
             const clipPercentage = 100 - percentage;
@@ -334,14 +366,18 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         if (comparisonRange) {
+            // Touch/Pointer interactions release ScrollTrigger calculations dynamically
             comparisonRange.addEventListener('input', (e) => {
-                if (window.innerWidth < 992) {
-                    updatePosition(Number(e.target.value));
-                }
+                manualOverrideActive = true;
+                updatePosition(Number(e.target.value));
+            });
+
+            comparisonRange.addEventListener('change', () => {
+                manualOverrideActive = false;
             });
         }
 
-        // Standard GSAP pin scroll active on larger layout displays
+        // Setup dynamic desktop comparison pinned to vertical scroll
         if (typeof gsap !== "undefined" && typeof ScrollTrigger !== "undefined") {
             gsap.registerPlugin(ScrollTrigger);
             let mm = gsap.matchMedia();
@@ -358,8 +394,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     scrub: 0.5,
                     invalidateOnRefresh: true,
                     onUpdate: (self) => {
-                        const progressPercent = self.progress * 100;
-                        updatePosition(progressPercent);
+                        if (!manualOverrideActive) {
+                            const progressPercent = self.progress * 100;
+                            updatePosition(progressPercent);
+                        }
 
                         if (self.progress > 0.02 && self.progress < 0.98) {
                             section.classList.add('active-scroll');
@@ -457,7 +495,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // ==========================================================================
-    // 9. Back To Top Dynamics & Smooth Anchor Clicks
+    // 9. Back To Top Dynamics & Defensive Anchor Scrolling
     // ==========================================================================
     const backToTopBtn = document.getElementById('backToTop');
 
@@ -485,26 +523,26 @@ document.addEventListener('DOMContentLoaded', () => {
             const targetId = this.getAttribute('href');
             if (targetId === '#') return;
 
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                e.preventDefault();
-                if (lenis) {
-                    lenis.scrollTo(targetElement, { duration: 1.0, offset: -70 });
-                } else {
-                    targetElement.scrollIntoView({ behavior: 'smooth' });
+            try {
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    e.preventDefault();
+                    if (lenis) {
+                        lenis.scrollTo(targetElement, { duration: 1.0, offset: -70 });
+                    } else {
+                        targetElement.scrollIntoView({ behavior: 'smooth' });
+                    }
                 }
+            } catch (error) {
+                // Catches DOMException errors from illegal selectors to prevent JS crashes
             }
         });
     });
 
-    // ==========================================================================
-    // 10. Form submission listener bypasses safely on replaced CTA layouts
-    // ==========================================================================
-    const appointmentForm = document.getElementById('appointmentForm');
-    const appointmentStatus = document.getElementById('appointmentStatus');
-    if (appointmentForm && appointmentStatus) {
-        appointmentForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-        });
-    }
+    // Refresh ScrollTrigger positioning calculations dynamically once images render
+    window.addEventListener('load', () => {
+        if (typeof ScrollTrigger !== "undefined") {
+            ScrollTrigger.refresh();
+        }
+    });
 });
