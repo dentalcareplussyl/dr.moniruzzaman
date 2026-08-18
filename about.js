@@ -5,11 +5,12 @@ document.addEventListener('DOMContentLoaded', () => {
     // Edit employee names, roles/details, and CSS image classes here.
     // ==========================================================================
     const TEAM_DATABASE = [
-        { name: "Dr. Fahmida Chowdhury", details: "Consultant Endodontist & Micro-Surgical Specialist", imgClass: "emp-img-1" },
-        { name: "Dr. Fariha Rahman", details: "Associate Dental Surgeon", imgClass: "emp-img-2" },
-        { name: "Dr. Sajid Al-Hasan", details: "Consultant Orthodontist & Maxillofacial Specialist", imgClass: "emp-img-3" },
-        { name: "Nusrat Jahan Chowdhury", details: "Senior Clinical Coordinator & Operations Head", imgClass: "emp-img-4" },
-        { name: "Md. Abu Sayed", details: "Lead Dental Lab Technologist & CAD/CAM Expert", imgClass: "emp-img-5" }
+        { name: "Dr. Shahnewaz Alam Siam", details: "Junior Consultant", qualifications: "BDS (Northeast Medical College) | SMU", imgClass: "emp-img-1" },
+        { name: "Dr. Umana Dorin", details: "Junior Consultant", qualifications: "BDS (Central Dental College) | SUST", imgClass: "emp-img-2" },
+        
+        { name: "Sumon Ahmed", details: "Dental Assistant", imgClass: "emp-img-3" },
+        { name: "Ali Hussain", details: "Dental Assistant", imgClass: "emp-img-4" },
+        { name: "MD. Shahed", details: "Receptionist", imgClass: "emp-img-5" }
     ];
 
     // ==========================================================================
