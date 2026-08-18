@@ -10,20 +10,13 @@
 }
 
 .credential-img {
-    background-image: url("images/bmdc.jpg")   
-}
-
-.journey-img { 
-    background-image: url("images/doctor-working.jpg"); 
-}
-
-.science-img { 
-    background-image: url("images/dental-procedure.jpg"); 
+    background-image: url("images/bmdc.jpg");
 }
 
 .safety-img { 
     background-image: url("images/patient.jpg"); 
 }
+
 .college-img { 
     background-image: url("images/sapporo-dental-clg.jpg"); 
 }
@@ -153,7 +146,7 @@
 }
 
 /* --------------------------------------------------------------------------
-   Section 1 — About Hero (Cut-out profile with modern flat disc backdrop)
+   Section 1 — About Hero (Cut-out profile with modern scaling adjustments)
    -------------------------------------------------------------------------- */
 .about-hero {
     position: relative;
@@ -162,7 +155,7 @@
     min-height: 100dvh;
     display: flex;
     align-items: center;
-    padding: 160px 0 80px 0;
+    padding: clamp(120px, 14vh, 180px) 0 clamp(60px, 8vh, 100px) 0;
     z-index: 1;
     background-color: var(--bg-light-ice);
 }
@@ -225,11 +218,7 @@
 }
 
 .about-portrait-img {
-   
-    /* --- Size Control Rule --- */
-
-    --portrait-scale: 1.0; /* Change to 1.1 to increase size by 10%, or 0.9 to decrease size by 10% */
-
+    --portrait-scale: 1.0;
     width: 100%;
     height: 100%;
     background-size: contain;
@@ -237,74 +226,7 @@
     background-repeat: no-repeat;
     display: block;
     transform: scale(var(--portrait-scale));
-    transform-origin: center center; /* Ensures scaling occurs from the center point */
-}
-
-.about-portrait-backdrop-disk {
-    position: absolute;
-    width: 84%;
-    height: 84%;
-    border-radius: 50%;
-    background: linear-gradient(135deg, rgba(20, 184, 166, 0.18) 0%, rgba(6, 182, 212, 0.06) 100%);
-    box-shadow: 0 30px 60px rgba(12, 87, 90, 0.08);
-    z-index: 1;
-}
-
-.about-portrait-cutout-img {
-    position: absolute;
-    bottom: 0;
-    width: 90%;
-    height: 100%;
-    background-size: contain;
-    background-position: bottom center;
-    background-repeat: no-repeat;
-    z-index: 2;
-}
-
-.geometric-dot {
-    position: absolute;
-    width: 18px;
-    height: 18px;
-    border-radius: 50%;
-    background-color: var(--accent-teal);
-    z-index: 3;
-    box-shadow: 0 0 15px rgba(20, 184, 166, 0.3);
-    animation: gem-pulse 4s infinite ease-in-out;
-}
-
-.dot-1 {
-    top: 35%;
-    left: -2%;
-}
-
-.dot-2 {
-    bottom: 30%;
-    right: -4%;
-    background-color: var(--accent-cyan);
-    width: 12px;
-    height: 12px;
-}
-
-.dot-3 {
-    top: 20%;
-    right: 12%;
-    width: 8px;
-    height: 8px;
-    background-color: var(--primary-teal-light);
-}
-
-.geometric-triangle {
-    position: absolute;
-    bottom: 12%;
-    left: 8%;
-    width: 0;
-    height: 0;
-    border-left: 20px solid transparent;
-    border-right: 20px solid transparent;
-    border-bottom: 35px solid var(--primary-teal);
-    transform: rotate(-18deg);
-    z-index: 3;
-    opacity: 0.8;
+    transform-origin: center center;
 }
 
 /* --------------------------------------------------------------------------
@@ -317,7 +239,7 @@
 
 .editorial-row {
     position: relative;
-    padding: 100px 0;
+    padding: clamp(60px, 8vh, 100px) 0;
     overflow: hidden;
 }
 
@@ -336,10 +258,6 @@
     grid-template-columns: 1fr 1fr;
     gap: 70px;
     align-items: center;
-}
-
-.invert-columns {
-    direction: ltr;
 }
 
 .editorial-grid.invert-columns > :first-child {
@@ -412,7 +330,7 @@
 .floating-stat-badge {
     position: absolute;
     bottom: -20px;
-    right: -20px;
+    right: 5%;
     padding: 20px 24px;
     border-radius: 16px;
     box-shadow: var(--glass-shadow-heavy);
@@ -421,6 +339,12 @@
     z-index: 3;
     max-width: 200px;
     animation: badge-float 6s infinite ease-in-out;
+}
+
+.floating-stat-badge.glass-panel-dark {
+    background: rgba(15, 23, 42, 0.85);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .badge-accent {
@@ -451,8 +375,8 @@
 
 .badge-label-light {
     font-size: 12px;
-    font-weight: 600;
-    color: rgba(255, 255, 255, 0.6);
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.95);
     text-transform: uppercase;
     letter-spacing: 0.05em;
 }
@@ -461,7 +385,7 @@
    Section 3 — Clinical Team Banner Section (Bounded Proportional Design)
    -------------------------------------------------------------------------- */
 .team-banner-section {
-    padding: 100px 0;
+    padding: clamp(60px, 8vh, 100px) 0;
     background-color: transparent;
     position: relative;
     overflow: hidden;
@@ -477,7 +401,7 @@
     position: relative;
     width: 100%;
     border-radius: 28px;
-    overflow: visible; /* Allows content badges to float safely over borders */
+    overflow: visible;
     border: 1px solid rgba(12, 87, 90, 0.05);
     box-shadow: var(--glass-shadow-heavy);
 }
@@ -486,12 +410,11 @@
     background-size: cover;
     background-position: center center;
     width: 100%;
-    aspect-ratio: 1537/1023; /* Preserves photo proportions without squishing */
+    aspect-ratio: 1537/1023;
     border-radius: 28px;
     display: block;
 }
 
-/* Floating content card matching existing details badges on the site */
 .team-banner-badge {
     position: absolute;
     bottom: -30px;
@@ -527,10 +450,6 @@
 
 /* Tablet & Mobile responsive overrides */
 @media (max-width: 1024px) {
-    .team-banner-section {
-        padding: 60px 0;
-    }
-
     .team-banner-badge {
         position: relative;
         bottom: auto;
@@ -538,7 +457,7 @@
         margin: 20px auto 0 auto;
         max-width: 100%;
         align-self: center;
-        animation: none; /* Disable vertical float animations on small touch devices */
+        animation: none;
         border: 1px solid rgba(12, 87, 90, 0.05);
     }
     
@@ -556,10 +475,10 @@
 }
 
 /* --------------------------------------------------------------------------
-   Section 4 — Services Accordion (Responsive two columns styling update)
+   Section 4 — Services Accordion
    -------------------------------------------------------------------------- */
 .about-services-section {
-    padding: 100px 0;
+    padding: clamp(60px, 8vh, 100px) 0;
     background-color: transparent;
     position: relative;
 }
@@ -572,7 +491,6 @@
     gap: 14px;
 }
 
-/* Two-column layout with high breathing space gap for desktops */
 @media (min-width: 1025px) {
     .accordion-container {
         display: grid;
@@ -595,13 +513,24 @@
     box-shadow: var(--glass-shadow);
 }
 
-.accordion-header {
+button.accordion-header {
+    width: 100%;
+    background: none;
+    border: none;
+    text-align: left;
+    font-family: inherit;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 24px 32px;
     cursor: pointer;
     user-select: none;
+    outline: none;
+}
+
+button.accordion-header:focus-visible {
+    outline: 2px solid var(--accent-teal);
+    outline-offset: -2px;
 }
 
 .accordion-title-block {
@@ -630,7 +559,6 @@
     border-radius: 50%;
     background-color: var(--bg-light-ice);
     border: none;
-    cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -718,7 +646,8 @@
     color: var(--accent-teal);
     position: absolute;
     left: 0;
-    top: 4px;
+    top: 0.55em;
+    transform: translateY(-50%);
     font-size: 8px;
 }
 
@@ -740,17 +669,18 @@
 }
 
 /* --------------------------------------------------------------------------
-   Section 5 — Employees Team Roster
+   Section 5 — Employees Team Roster (Optimized Tiered Responsive Flex Grid)
    -------------------------------------------------------------------------- */
 .team-section {
-    padding: 100px 0;
+    padding: clamp(60px, 8vh, 100px) 0;
     background-color: transparent;
     position: relative;
 }
 
 .team-grid {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 40px;
     max-width: 1200px;
     margin: 0 auto;
@@ -761,15 +691,33 @@
     flex-direction: column;
     align-items: center;
     text-align: center;
+    transition: transform 0.3s ease;
+}
+
+.team-member.role-doctor {
+    flex: 0 1 calc(50% - 30px);
+    max-width: 380px;
+    min-width: 280px;
+}
+
+.team-member.role-staff {
+    flex: 0 1 calc(33.333% - 30px);
+    max-width: 280px;
+    min-width: 220px;
 }
 
 .team-img-wrapper {
-    width: 100%;
-    aspect-ratio: 1/1;
+    width: 160px;
+    height: 160px;
     border-radius: 50%;
     overflow: hidden;
     margin-bottom: 20px;
     border: 2px solid rgba(12, 87, 90, 0.08);
+    transition: border-color 0.3s ease;
+}
+
+.team-member:hover .team-img-wrapper {
+    border-color: var(--accent-teal);
 }
 
 .team-img {
@@ -792,14 +740,20 @@
     font-size: 13.5px;
     color: var(--text-light);
     line-height: 1.4;
+    margin-bottom: 4px;
 }
 
+.team-qualifications {
+    font-size: 11px;
+    color: var(--text-light);
+    opacity: 0.85;
+    line-height: 1.4;
+    max-width: 240px;
+}
 
 /* ==========================================================================
    Redesigned Developer Credit styling (EA Logo Integration)
    ========================================================================== */
-
-/* Structure & Position at bottom-right of footer container */
 .footer-bottom-container {
     display: flex;
     justify-content: space-between;
@@ -811,11 +765,10 @@
 .developer-credit {
     display: flex;
     flex-direction: column;
-    align-items: flex-end; /* Sits at the right side on desktop */
-    gap: 5px; /* Breathing space between "developed by" and logo */
+    align-items: flex-end;
+    gap: 5px;
 }
 
-/* "developed by" text rules */
 .dev-by-text {
     font-size: 10px;
     color: rgba(255, 255, 255, 0.4);
@@ -827,7 +780,6 @@
     user-select: none;
 }
 
-/* Clean up link defaults and setup positioning */
 .footer-bottom-container a.developer-link {
     display: inline-flex;
     align-items: center;
@@ -837,59 +789,45 @@
     border: none !important;
     padding: 0 !important;
     color: inherit;
-    transition: none; /* Disables generic overrides */
+    transition: none;
 }
 
-/* Logo image styling (original colors, slightly muted initially) */
 .developer-logo-img {
     height: auto;
-    width: 125px; /* Elegantly balanced sizing */
+    width: 125px;
     display: block;
     opacity: 0.8;
     filter: drop-shadow(0 0 0 transparent) brightness(1);
     transition: transform 0.3s ease, opacity 0.3s ease, filter 0.3s ease;
 }
 
-/* Animated ↗ arrow rules */
 .hover-arrow {
     display: inline-block;
     font-size: 11px;
-    color: #e67e22; /* Matches the warm orange tone of the EA logo icon */
+    color: #e67e22;
     opacity: 0;
-    transform: translate(-3px, 3px); /* Starts slightly offset downwards-left */
+    transform: translate(-3px, 3px);
     transition: transform 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94), opacity 0.3s ease;
 }
 
-/* Hover effects */
 .footer-bottom-container a.developer-link:hover .developer-logo-img {
     opacity: 1;
-    transform: scale(1.03); /* Slightly larger */
-    /* Soft orange/warm shadow glow matching the logo's native colors */
+    transform: scale(1.03);
     filter: drop-shadow(0 0 8px rgba(230, 126, 34, 0.45)) brightness(1.08); 
 }
 
 .footer-bottom-container a.developer-link:hover .hover-arrow {
     opacity: 1;
-    transform: translate(0, 0); /* Slides smoothly upwards-right */
+    transform: translate(0, 0);
 }
 
-/* Responsive adjustment for Mobile/Tablet */
-@media (max-width: 1024px) {
-    .footer-bottom-container {
-        flex-direction: column;
-        justify-content: center;
-        text-align: center;
-        gap: 16px;
-    }
-
-    .developer-credit {
-        align-items: center; /* Sits in the center at very bottom on mobile screens */
-    }
+.back-to-top {
+    z-index: 999;
 }
 
-/* --------------------------------------------------------------------------
+/* ==========================================================================
    Media Queries & Responsive Layout overrides
-   -------------------------------------------------------------------------- */
+   ========================================================================== */
 @media (max-width: 1024px) {
     .about-hero {
         padding-top: 120px;
@@ -925,7 +863,7 @@
     }
 
     .editorial-row {
-        padding: 60px 0;
+        padding: clamp(40px, 6vh, 60px) 0;
     }
 
     .floating-stat-badge {
@@ -942,17 +880,10 @@
         gap: 24px;
     }
 
-    .team-grid {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 30px;
-    }
-    /* Centers orphan elements on tablet views */
-    .team-member:nth-child(n+4) {
-        grid-column: span 1;
-    }
-    .about-hero-portrait-composite .geometric-dot,
-    .about-hero-portrait-composite .geometric-triangle {
-        display: none !important;
+    .team-member.role-doctor,
+    .team-member.role-staff {
+        flex: 0 1 calc(50% - 20px);
+        max-width: 320px;
     }
 }
 
@@ -961,7 +892,7 @@
         padding: 0 20px 20px 20px;
     }
 
-    .accordion-header {
+    button.accordion-header {
         padding: 16px 20px;
     }
 
@@ -979,12 +910,26 @@
     }
 
     .team-grid {
-        grid-template-columns: repeat(2, 1fr);
+        flex-direction: column;
+        align-items: center;
+        gap: 35px;
     }
-}
 
-@media (max-width: 480px) {
-    .team-grid {
-        grid-template-columns: 1fr;
+    .team-member.role-doctor,
+    .team-member.role-staff {
+        flex: 1 1 auto;
+        width: 100%;
+        max-width: 290px;
+    }
+
+    .footer-bottom-container {
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+        gap: 16px;
+    }
+
+    .developer-credit {
+        align-items: center;
     }
 }
