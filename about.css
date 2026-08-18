@@ -5,8 +5,8 @@
 /* ==========================================================================
    Image Asset Allocations (Synchronized Absolute Folder Paths)
    ========================================================================== */
-.about-portrait-cutout-img {
-    background-image: url("images/doctor-no-bg.png");
+.about-portrait-img {
+    background-image: url("images/about-portrait.png");
 }
 
 .credential-img {
@@ -217,7 +217,7 @@
     position: relative;
     width: 100%;
     aspect-ratio: 1/1;
-    max-width: 440px;
+    max-width: 640px;
     justify-self: center;
     display: flex;
     align-items: center;
