@@ -1498,6 +1498,9 @@ a {
     border-radius: 50%;
     border: 2px solid rgba(20, 184, 166, 0.2);
     display: inline-block;
+    background-size: cover;
+    background-position: center;
+    flex-shrink: 0;
 }
 
 .testimonial-author h5 {
@@ -2266,7 +2269,7 @@ select:focus-visible {
 
     .hero-aside {
         order: -1;
-        margin-top: 10px;
+        margin-top: 40px;
         margin-bottom: 0;
     }
 
