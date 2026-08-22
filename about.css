@@ -10,124 +10,124 @@
 }
 
 .credential-img {
-    background-image: url("images/bmdc.jpg");
+    background-image: url("images/bmdc.avif");
 }
 
 .safety-img { 
-    background-image: url("images/patient.jpg"); 
+    background-image: url("images/patient.avif"); 
 }
 
 .college-img { 
-    background-image: url("images/sapporo-dental-clg.jpg"); 
+    background-image: url("images/sapporo-dental-clg.avif"); 
 }
 
 .service-img-1 { 
-    background-image: url("images/laser-therapy.jpg"); 
+    background-image: url("images/laser-therapy.avif"); 
 }
 
 .service-img-2 { 
-    background-image: url("images/implant.jpg"); 
+    background-image: url("images/implant.avif"); 
 }
 
 .service-img-3 { 
-    background-image: url("images/veneers.jpg"); 
+    background-image: url("images/veneers.avif"); 
 }
 
 .service-img-4 { 
-    background-image: url("images/service.jpg"); 
+    background-image: url("images/service.avif"); 
 }
 
 .service-img-5 { 
-    background-image: url("images/root-canal.jpg"); 
+    background-image: url("images/root-canal.avif"); 
 }
 
 .service-img-6 { 
-    background-image: url("images/whitening.jpg"); 
+    background-image: url("images/whitening.avif"); 
 }
 
 .service-img-7 { 
-    background-image: url("images/dental-procedure.jpg"); 
+    background-image: url("images/dental-procedure.avif"); 
 }
 
 .service-img-8 { 
-    background-image: url("images/regeneration.jpg"); 
+    background-image: url("images/regeneration.avif"); 
 }
 
 .service-img-9 { 
-    background-image: url("images/orthodontic.jpg"); 
+    background-image: url("images/orthodontic.avif"); 
 }
 
 .service-img-10 { 
-    background-image: url("images/retainer.jpg"); 
+    background-image: url("images/retainer.avif"); 
 }
 
 .service-img-11 { 
-    background-image: url("images/bone-loss.jpg"); 
+    background-image: url("images/bone-loss.avif"); 
 }
 
 .service-img-12 { 
-    background-image: url("images/endodontic.jpg"); 
+    background-image: url("images/endodontic.avif"); 
 }
 
 .service-img-13 { 
-    background-image: url("images/adhesive.jpg"); 
+    background-image: url("images/adhesive.avif"); 
 }
 
 .service-img-14 { 
-    background-image: url("images/removable.jpg"); 
+    background-image: url("images/removable.avif"); 
 }
 
 .service-img-15 { 
-    background-image: url("images/rct.jpg"); 
+    background-image: url("images/rct.avif"); 
 }
 
 .service-img-16 { 
-    background-image: url("images/fillings.jpg"); 
+    background-image: url("images/fillings.avif"); 
 }
 
 .service-img-17 { 
-    background-image: url("images/bonding.jpg"); 
+    background-image: url("images/bonding.avif"); 
 }
 
 .service-img-18 { 
-    background-image: url("images/pfm.jpg"); 
+    background-image: url("images/pfm.avif"); 
 }
 
 .service-img-19 { 
-    background-image: url("images/dentures.jpg"); 
+    background-image: url("images/dentures.avif"); 
 }
 
 .service-img-20 { 
-    background-image: url("images/extraction.jpg"); 
+    background-image: url("images/extraction.avif"); 
 }
 
 .service-img-21 { 
-    background-image: url("images/polishing.jpg"); 
+    background-image: url("images/polishing.avif"); 
 }
 
 .service-img-22 { 
-    background-image: url("images/drilling.jpg"); 
+    background-image: url("images/drilling.avif"); 
 }
 
 .service-img-23 { 
-    background-image: url("images/sealant.jpg"); 
+    background-image: url("images/sealant.avif"); 
 }
 
 .service-img-24 { 
-    background-image: url("images/radiography.jpg"); 
+    background-image: url("images/radiography.avif"); 
 }
 
 .service-img-25 { 
-    background-image: url("images/scaling.jpg"); 
+    background-image: url("images/scaling.avif"); 
 }
 
 .service-img-26 { 
-    background-image: url("images/trauma.jpg"); 
+    background-image: url("images/trauma.avif"); 
 }
 
 /* Dynamic Employee Roster Image Maps */
 .team-banner-img {
-    background-image: url("images/team.jpg");
+    background-image: url("images/team.avif");
 }
 .emp-img-1 {
     background-image: url("images/dr-monir.jpg");
