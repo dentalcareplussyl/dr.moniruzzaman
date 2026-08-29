@@ -57,43 +57,43 @@
 }
 
 .before-img {
-    background-image: url("images/before.avif");
+    background-image: url("images/before.jpg");
 }
 
 .after-img {
-    background-image: url("images/after.avif");
+    background-image: url("images/after.jpg");
 }
 
 .doctor-working-img {
-    background-image: url("images/doctor-working.avif");
+    background-image: url("images/doctor-working.jpg");
 }
 
 .clinic-img-placeholder {
-    background-image: url("images/clinic.avif");
+    background-image: url("images/clinic.jpg");
 }
 
 .waiting-area-img {
-    background-image: url("images/waiting-area.avif");
+    background-image: url("images/waiting-area.jpg");
 }
 
 .equipment-img {
-    background-image: url("images/equipment.avif");
+    background-image: url("images/equipment.jpg");
 }
 
 .chair-img {
-    background-image: url("images/chair.avif");
+    background-image: url("images/chair.jpg");
 }
 
 .dental-scaler-img {
-   background-image: url("images/dental-scaler.avif");
+   background-image: url("images/dental-scaler.jpg");
 }
 
 .curing-light-img {
-   background-image: url("images/curing-light.avif");
+   background-image: url("images/curing-light.jpg");
 }
 
 .xray-machine-img {
-   background-image: url("images/xray-machine.avif");
+   background-image: url("images/xray-machine.jpg");
 }
 
 .avatar-1 {
