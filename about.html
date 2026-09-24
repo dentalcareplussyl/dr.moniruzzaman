@@ -915,21 +915,31 @@
     <script src="script.js"></script>
     <script src="about.js"></script>
 
-    <script>
-  window.addEventListener('DOMContentLoaded', () => {
-    const loader = document.getElementById('loader');
+    <!-- Global Loading Screen Fix Script -->
+<script>
+  window.addEventListener('DOMContentLoaded', function () {
+    var loader = document.getElementById('loader');
+    var loaderFill = document.querySelector('.loader-bar-fill');
 
     function removeLoader() {
-      if (loader && !loader.classList.contains('loader-hidden')) {
-        loader.classList.add('loader-hidden');
+      if (!loader || loader.classList.contains('loader-hidden')) return;
+
+      // 1. Instantly snap the bar to 100% full
+      if (loaderFill) {
+        loaderFill.style.animation = 'none';
+        loaderFill.style.width = '100%';
       }
+
+      // 2. Wait 300ms for the bar to look full, then fade out the screen
+      setTimeout(function () {
+        loader.classList.add('loader-hidden');
+      }, 300);
     }
 
-    // 1. Hide loader when all assets (images, fonts, styles) finish loading
+    // Trigger fix when images/fonts finish loading
     window.addEventListener('load', removeLoader);
 
-    // 2. Safety Fallback: Hide loader after 2.5 seconds no matter what
-    // (prevents slow or missing assets from locking the screen forever)
+    // Safety backup: Remove loader after 2.5s no matter what
     setTimeout(removeLoader, 2500);
   });
 </script>
