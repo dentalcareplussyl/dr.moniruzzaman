@@ -792,6 +792,26 @@
 
     <!-- Main scripts and page adjustments -->
     <script src="script.js"></script>
+
+    <script>
+  window.addEventListener('DOMContentLoaded', () => {
+    const loader = document.getElementById('loader');
+
+    function removeLoader() {
+      if (loader && !loader.classList.contains('loader-hidden')) {
+        loader.classList.add('loader-hidden');
+      }
+    }
+
+    // 1. Hide loader when all assets (images, fonts, styles) finish loading
+    window.addEventListener('load', removeLoader);
+
+    // 2. Safety Fallback: Hide loader after 2.5 seconds no matter what
+    // (prevents slow or missing assets from locking the screen forever)
+    setTimeout(removeLoader, 2500);
+  });
+</script>
+    
 </body>
 
 </html>
