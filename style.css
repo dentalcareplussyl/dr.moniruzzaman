@@ -2471,7 +2471,38 @@ select:focus-visible {
     display: block;
 }
 
+/* Container for the loading bar */
 .loader-bar {
     width: 260px;
     height: 5px;
-    background: rgba(25, 181, 
+    background: rgba(255, 255, 255, 0.1); /* Subtle dark track */
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+/* The animated filling bar */
+.loader-bar-fill {
+    height: 100%;
+    width: 0%; /* Starts at zero */
+    background: #19B5AF; /* Matches your brand teal color */
+    border-radius: 10px;
+    transition: width 0.3s ease;
+    animation: loaderIndeterminate 2s ease-in-out infinite;
+}
+
+/* Smooth continuous wave while waiting for assets */
+@keyframes loaderIndeterminate {
+    0% {
+        width: 0%;
+        margin-left: 0%;
+    }
+    50% {
+        width: 70%;
+        margin-left: 15%;
+    }
+    100% {
+        width: 100%;
+        margin-left: 0%;
+    }
+}
