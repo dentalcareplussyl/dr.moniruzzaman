@@ -934,3 +934,38 @@ button.accordion-header:focus-visible {
         align-items: center;
     }
 }
+
+
+/* ==========================================================================
+   Global Loading Screen
+   ========================================================================== */
+#loader {
+    position: fixed;
+    inset: 0;
+    background: #101C1C;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    z-index: 999999;
+    transition: opacity 0.5s ease;
+}
+
+#loader.loader-hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.loader-logo {
+    width: 120px;
+    height: auto;
+    max-width: none;
+    object-fit: contain;
+    display: block;
+}
+
+.loader-bar {
+    width: 260px;
+    height: 5px;
+    background: rgba(25, 181, 
