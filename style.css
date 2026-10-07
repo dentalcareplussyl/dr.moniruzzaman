@@ -84,6 +84,10 @@
     background-image: url("images/chair.jpg");
 }
 
+.operatory-img {
+    background-image: url("images/operatory.jpg");
+}
+
 .dental-scaler-img {
    background-image: url("images/dental-scaler.jpg");
 }
